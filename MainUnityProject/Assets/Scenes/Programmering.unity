@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  jumpforce: 270
 --- !u!54 &1746934631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -715,8 +716,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 5257988041132589109, guid: 25eb839342a522642b1f4ea00132eeed, type: 3}
-  objVelF: 2
-  objVelS: 0
+  objVelX: 5
+  objVelZ: 0
+  objVelY: 2
 --- !u!1001 &2890705027769791290
 PrefabInstance:
   m_ObjectHideFlags: 0
