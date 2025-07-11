@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class movementscript : MonoBehaviour
 {
@@ -17,11 +18,15 @@ public class movementscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        //movement
         Vector3 movement = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
         movement *= Time.deltaTime;
-        
+
         
         transform.position += movement * speed;
+        
+        
         
         //jump
         if (Input.GetKey(KeyCode.Space) && !jumping)
