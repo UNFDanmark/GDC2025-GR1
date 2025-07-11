@@ -1,0 +1,22 @@
+using UnityEngine;
+
+public class InstantiateObjects : MonoBehaviour
+{
+
+    public GameObject obj;
+    GameObject instObj;
+
+    [SerializeField] float objVelF = 0;
+    [SerializeField] float objVelS = 0;
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            instObj = Instantiate(obj, transform.position + transform.forward * 1, new Quaternion());
+            instObj.AddComponent<Rigidbody>();
+            instObj.GetComponent<Rigidbody>().linearVelocity = objVelF * transform.forward;
+            instObj.GetComponent<Rigidbody>().linearVelocity = objVelS * transform.right;
+        }
+    }
+}
