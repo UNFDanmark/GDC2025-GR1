@@ -16,9 +16,6 @@ public class movementscript : MonoBehaviour
     {
         Vector3 movement = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
         movement *= Time.deltaTime;
-        print(movement);
-        print(Input.GetAxisRaw("Horizontal"));
-        print(Input.GetAxisRaw("Vertical"));
         
         
         transform.position += movement * speed;
