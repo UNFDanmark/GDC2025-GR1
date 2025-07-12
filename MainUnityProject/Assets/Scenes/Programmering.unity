@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 1008975630}
   - component: {fileID: 1008975629}
   - component: {fileID: 1008975628}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,14 +933,6 @@ PrefabInstance:
     - target: {fileID: 2073925696647770670, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: m_Name
       value: Capsule
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875183881692173772, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-      propertyPath: maxXAngle
-      value: 290
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875183881692173772, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-      propertyPath: minXAngle
-      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6084654875771575235, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: m_LocalPosition.x

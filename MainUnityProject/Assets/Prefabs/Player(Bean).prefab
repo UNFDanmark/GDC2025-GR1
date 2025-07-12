@@ -279,6 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfbfcd9fc954e64da2765edf8a39e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  test: 0
+  minXAngle: 70
+  maxXAngle: 290
+  window: {x: 0, y: 0, z: 0}
 --- !u!54 &7455677787272136775
 Rigidbody:
   m_ObjectHideFlags: 0
