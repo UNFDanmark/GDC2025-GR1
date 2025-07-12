@@ -14,7 +14,7 @@ public class CameraMovementScript : MonoBehaviour
     void Start()
     {
 
-        camera = UnityEngine.Camera.main.gameObject;
+        camera = Camera.main.gameObject;
         
         Cursor.lockState = CursorLockMode.Locked;
      
