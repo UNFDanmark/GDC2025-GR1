@@ -7,6 +7,7 @@ public class LevelSwitcher : MonoBehaviour
     
     public enum MyEnum
     {
+        StartScreen,
         Settings,
         Bank
     };
