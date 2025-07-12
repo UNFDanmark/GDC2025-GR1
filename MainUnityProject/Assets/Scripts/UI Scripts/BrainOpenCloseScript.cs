@@ -1,19 +1,13 @@
+using System;
 using UnityEngine;
 
 public class BrainOpenCloseScript : MonoBehaviour
 {
-
-    bool isOpen;
-    
-    public void OnClick()
-    {
-        if (isOpen)
-        {
-            isOpen = !isOpen;
-        }
-        else
-        {
-            isOpen = !isOpen;
-        }
-    }
+   void Update()
+   {
+      if (Input.GetKeyDown(KeyCode.Tab))
+      {
+         GetComponent<Animator>().SetBool("New Bool", !GetComponent<Animator>().GetBool("New Bool"));
+      }
+   }
 }
