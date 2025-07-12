@@ -236,7 +236,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073925696647770670}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 534eb8a8a0b377f4d9c8e01647b0de81, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -267,6 +267,8 @@ MonoBehaviour:
   speed: 6
   jumpforce: 270
   jumpdelay: 0.1
+  movement: {x: 0, y: 0, z: 0}
+  linearVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4875183881692173772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,10 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfbfcd9fc954e64da2765edf8a39e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
   minXAngle: 70
   maxXAngle: 290
-  window: {x: 0, y: 0, z: 0}
 --- !u!54 &7455677787272136775
 Rigidbody:
   m_ObjectHideFlags: 0

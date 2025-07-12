@@ -11,7 +11,9 @@ public class movementscript : MonoBehaviour
     bool jumping;
     Rigidbody rb;
     
-    Vector3 movement;
+    [SerializeField]Vector3 movement;
+    [SerializeField]Vector3 linearVelocity;
+    
     float movex, movez;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +26,7 @@ public class movementscript : MonoBehaviour
     void Update()
     {
         
+        
         //movement input
         movez = Input.GetAxisRaw("Vertical");
         movex = Input.GetAxisRaw("Horizontal");
@@ -31,7 +34,8 @@ public class movementscript : MonoBehaviour
         movement = transform.forward * movez + transform.right * movex;
         movement *= Time.deltaTime;
 
-        rb.linearVelocity = movement * (speed * 100);
+        rb.linearVelocity = movement * (speed * 100) + Vector3.up * rb.linearVelocity.y;
+        
         
         
         
@@ -53,5 +57,6 @@ public class movementscript : MonoBehaviour
         jumping = false;
         StopAllCoroutines();
     }
+
     
 }
