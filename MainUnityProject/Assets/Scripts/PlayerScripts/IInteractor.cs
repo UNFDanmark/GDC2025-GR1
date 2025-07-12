@@ -38,7 +38,7 @@ public class IInteractor : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.F))
                 {
-                    interactObj.Interact(2);
+                    interactObj.Interact(2);    
                 }
             }
         }
