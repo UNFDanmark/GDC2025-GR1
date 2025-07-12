@@ -3,7 +3,7 @@ using UnityEngine;
 
 interface IInteractable
 {
-    public void Interact()
+    public void Interact(int input)
     {
         
     }
@@ -16,7 +16,7 @@ interface IInteractable
 
 public class IInteractor : MonoBehaviour
 {
-    [SerializeField] float interactRange = 5;
+    [SerializeField]public float interactRange;
     [SerializeField] GameObject ButtonUI;
     
     
@@ -24,20 +24,21 @@ public class IInteractor : MonoBehaviour
     {
         ButtonUI.SetActive(false);
         
-        if (Physics.Raycast(transform.position, transform.forward * interactRange, out var hit))
+        if (Physics.Raycast(transform.position, transform.forward, out var hit, interactRange))
         {
             if (hit.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
-                ButtonUI.SetActive(true);
+                ButtonUI.SetActive(true); 
+                print("AAAAAAAAAAAAAAA2");
                 
                 interactObj.ShowUI();
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                
+                    interactObj.Interact(1);
                 }
                 else if (Input.GetKeyDown(KeyCode.F))
                 {
-                
+                    interactObj.Interact(2);
                 }
             }
         }
