@@ -3,7 +3,7 @@ using UnityEngine;
 
 interface IInteractable
 {
-    public void Interact(int input)
+    public void Interact(int input, GameObject obj)
     {
         
     }
@@ -34,11 +34,11 @@ public class IInteractor : MonoBehaviour
                 interactObj.ShowUI();
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    interactObj.Interact(1);
+                    interactObj.Interact(1, transform.parent.gameObject);
                 }
                 else if (Input.GetKeyDown(KeyCode.F))
                 {
-                    interactObj.Interact(2);    
+                    interactObj.Interact(2, transform.parent.gameObject);
                 }
             }
         }

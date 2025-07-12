@@ -11,8 +11,11 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     float delay, countdown;
     
     
-    public void Interact(int input)
+    public void Interact(int input, GameObject obj)
     {
+
+        GetComponent<movementscript>().enabled = false;
+        
         if (input == 1)
         {
             print("guard speak type shi");
