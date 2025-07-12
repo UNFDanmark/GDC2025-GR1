@@ -3,6 +3,7 @@ using UnityEngine;
 
 interface IInteractable
 {
+    public bool isNPC;
     public void Interact(int input, GameObject obj)
     {
         
@@ -11,6 +12,11 @@ interface IInteractable
     public void ShowUI()
     {
         
+    }
+
+    public GameObject gimmeyoGameObj()
+    {
+        return GameObject()
     }
 }
 
@@ -28,9 +34,12 @@ public class IInteractor : MonoBehaviour
         {
             if (hit.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
-                ButtonUI.SetActive(true); 
-                print("AAAAAAAAAAAAAAA2");
                 
+                if (interactObj.isNPC)
+                {
+                    if(!interactObj.)
+                    ButtonUI.SetActive(true);
+                }
                 interactObj.ShowUI();
                 if (Input.GetKeyDown(KeyCode.E))
                 {
