@@ -11,7 +11,7 @@ public class movementscript : MonoBehaviour
     bool jumping;
     Rigidbody rb;
     
-    [SerializeField]Vector3 movement;
+    [SerializeField]public Vector3 movement;
     [SerializeField]Vector3 linearVelocity;
     
     float movex, movez;
