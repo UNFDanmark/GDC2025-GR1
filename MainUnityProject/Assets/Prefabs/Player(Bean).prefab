@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3.5
-  ButtonUI: {fileID: 0}
+  ButtonUI: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
 --- !u!1 &2073925696647770670
 GameObject:
   m_ObjectHideFlags: 0
