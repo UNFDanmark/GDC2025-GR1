@@ -8,16 +8,13 @@ interface IInteractable
         
     }
 
-    public void ShowUI()
+    public void ShowUI(GameObject BtnUI)
     {
         
     }
-/*
-    public GameObject gimmeyoGameObj()
-    {
-        return GameObject()
-    }
-    */
+
+    
+    
 }
 
 public class IInteractor : MonoBehaviour
@@ -34,9 +31,9 @@ public class IInteractor : MonoBehaviour
         {
             if (hit.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
-                ButtonUI.SetActive(true);
                 
-                interactObj.ShowUI();
+                interactObj.ShowUI(ButtonUI);
+                
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactObj.Interact(1, transform.parent.gameObject);

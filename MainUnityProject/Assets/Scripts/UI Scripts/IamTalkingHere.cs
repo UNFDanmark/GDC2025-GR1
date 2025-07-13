@@ -8,7 +8,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
     [SerializeField] string[] dialog;
     [SerializeField] bool iamGuard;
-    [SerializeField] GameObject UI;
+    [SerializeField] GameObject UI, btnUI;
     public bool showingui, talking;
     float delay, countdown;
     
@@ -28,16 +28,20 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         {
             print("water thingy");
         }
+
     }
 
-    public void ShowUI()
+    public void ShowUI(GameObject BtnUI)
     {
+        btnUI = BtnUI;
+        if(!talking) btnUI.SetActive(true);
         showingui = true;
         showingUI();
     }
 
     void showingUI()
     {
+        
         UI.SetActive(true);
         countdown = delay;
         while(showingui)
@@ -53,6 +57,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
     void Dialog()
     {
+        btnUI.SetActive(true);
         while (talking)
         {
             
