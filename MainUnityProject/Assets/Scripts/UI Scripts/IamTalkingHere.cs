@@ -7,7 +7,7 @@ using TMPro;
 public class IamTalkingHere : MonoBehaviour, IInteractable
 {
 
-    [SerializeField] string[] dialog;
+    [SerializeField] string[] dialog1;
     [SerializeField] bool iamGuard;
     [SerializeField] GameObject UI, dialogUI;
     [SerializeField]GameObject btnUI, obj;
@@ -21,22 +21,48 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         obj.transform.parent.GetComponent<movementscript>().enabled = false;
         obj.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         obj.transform.parent.GetComponent<CameraMovementScript>().enabled = false;
-        
-        
+
+
         if (input == 1)
         {
-            Dialog();
+            StartCoroutine(Dialog());
         }
         else if (input == 2)
         {
-            if (iamGuard)
-            {
-                print("water thingy");
-            }
+            
         }
+        
+        
 
     }
 
+    IEnumerator Dialog()
+    {
+        talking = true;
+        btnUI.SetActive(false);
+        dialogUI.SetActive(true);
+        int currentDialog = 0;
+        
+        TextMeshProUGUI dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();        
+        
+        while (talking)
+        {
+            if (currentDialog == dialog1.Length)
+            {
+                talking = !talking;
+                dialogUI.SetActive(false);
+            }
+            else if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                currentDialog++;
+            }
+            dialogText.SetText(dialog1[currentDialog]);
+            yield return new WaitForSeconds(0.075f);
+        }
+
+        
+    }
+    
     public void ShowUI(GameObject BtnUI)
     {
         btnUI = BtnUI;
@@ -44,7 +70,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         showingui = true;
         showingUI();
     }
-
+    
     void showingUI()
     {
         
@@ -59,29 +85,5 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
             }
         }
         UI.SetActive(false);
-    }
-
-    void Dialog()
-    {
-        talking = true;
-        btnUI.SetActive(false);
-        dialogUI.SetActive(true);
-        int currentDialog = 0;
-        
-        TextMeshProUGUI dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();        
-        
-        while (talking)
-        {
-            if (currentDialog == dialog.Length)
-            {
-                talking = !talking;
-                dialogUI.SetActive(false);
-            }
-            else if(Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                currentDialog++;
-            }
-            dialogText.SetText(dialog[currentDialog]);
-        }
     }
 }
