@@ -9,9 +9,9 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
     [SerializeField] string[] dialog1;
     [SerializeField] bool iamGuard;
-    [SerializeField] GameObject UI, dialogUI;
+    [SerializeField] GameObject dialogUI;
     [SerializeField]GameObject btnUI, obj;
-    public bool showingui, talking;
+    public bool talking;
     [SerializeField]float delay, countdown;
     
     public void Interact(int input, GameObject Obj)
@@ -38,12 +38,10 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
     IEnumerator Dialog()
     {
-        print("test");
         talking = true;
         btnUI.SetActive(false);
         dialogUI.SetActive(true);
         int currentDialog = 0;
-        print("test2");
         TextMeshProUGUI dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();        
         
         while (talking)
@@ -55,37 +53,17 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
             }
             else if(Input.GetKeyDown(KeyCode.Mouse0))
             {
-                print("test3");
                 currentDialog++;
             }
             dialogText.SetText(dialog1[currentDialog]);
-            yield return new WaitForSeconds(0.075f);
         }
 
-        
+        yield return new WaitForEndOfFrame();
     }
     
     public void ShowUI(GameObject BtnUI)
     {
         btnUI = BtnUI;
         if(!talking) btnUI.SetActive(true);
-        showingui = true;
-        showingUI();
-    }
-    
-    void showingUI()
-    {
-        
-        UI.SetActive(true);
-        countdown = delay;
-        while(showingui)
-        {
-            countdown -= Time.deltaTime;
-            if (countdown <= 0)
-            {
-                showingui = false;
-            }
-        }
-        UI.SetActive(false);
     }
 }
