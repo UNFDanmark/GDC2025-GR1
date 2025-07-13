@@ -3629,6 +3629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonInteractUI
       objectReference: {fileID: 0}
+    - target: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6784797290105639676, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
       propertyPath: m_LocalPosition.x
       value: -150
@@ -3734,6 +3738,18 @@ PrefabInstance:
       propertyPath: dialogUI
       value: 
       objectReference: {fileID: 737381105}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: dialog1.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: 'dialog1.Array.data[0]'
+      value: Remove thou self from my eye sight right this instant scallywag
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: 'dialog1.Array.data[1]'
+      value: NOW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
