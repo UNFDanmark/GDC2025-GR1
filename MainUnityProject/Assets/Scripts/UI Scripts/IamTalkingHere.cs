@@ -2,22 +2,25 @@ using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
+using TMPro;
 
 public class IamTalkingHere : MonoBehaviour, IInteractable
 {
 
     [SerializeField] string[] dialog;
     [SerializeField] bool iamGuard;
-    [SerializeField] GameObject UI, btnUI;
+    [SerializeField] GameObject UI, dialogUI;
+    [SerializeField]GameObject btnUI, obj;
     public bool showingui, talking;
-    float delay, countdown;
+    [SerializeField]float delay, countdown;
     
-    public bool isNPC;
-    public void Interact(int input, GameObject obj)
+    public void Interact(int input, GameObject Obj)
     {
 
-   
-        GetComponent<movementscript>().enabled = false;
+        obj = Obj;
+        obj.GetComponent<movementscript>().enabled = false;
+        obj.transform.GetChild(0).GetComponent<CameraMovementScript>().enabled = false;
+        obj.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         
         if (input == 1)
         {
@@ -57,10 +60,24 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
     void Dialog()
     {
-        btnUI.SetActive(true);
+        btnUI.SetActive(false);
+        dialogUI.SetActive(true);
+        int currentDialog = 0;
+        
+        TextMeshProUGUI dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();        
+        
         while (talking)
         {
-            
+            if (currentDialog == dialog.Length)
+            {
+                talking = !talking;
+                dialogUI.SetActive(false);
+            }
+            else if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                currentDialog++;
+            }
+            dialogText.SetText(dialog[currentDialog]);
         }
     }
 }
