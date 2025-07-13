@@ -25,7 +25,7 @@ public class IInteractor : MonoBehaviour
     
     void Update()
     {
-        ButtonUI.SetActive(false);
+        
         
         if (Physics.Raycast(transform.position, transform.forward, out var hit, interactRange))
         {
@@ -37,13 +37,17 @@ public class IInteractor : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     print(transform.parent.gameObject.name);
-                    interactObj.Interact(1, transform.parent.gameObject);
+                    interactObj.Interact(1, gameObject);
                 }
                 else if (Input.GetKeyDown(KeyCode.F))
                 {
                     interactObj.Interact(2, transform.parent.gameObject);
                 }
             }
+        }
+        else
+        {
+            ButtonUI.SetActive(false);
         }
     }
 }

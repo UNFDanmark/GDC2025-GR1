@@ -18,18 +18,21 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     {
 
         obj = Obj;
-        obj.GetComponent<movementscript>().enabled = false;
-        obj.transform.GetChild(0).GetComponent<CameraMovementScript>().enabled = false;
-        obj.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        obj.transform.parent.GetComponent<movementscript>().enabled = false;
+        obj.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        obj.transform.parent.GetComponent<CameraMovementScript>().enabled = false;
+        
         
         if (input == 1)
         {
-            print("guard speak type shi");
             Dialog();
         }
-        else if (iamGuard && input == 2)
+        else if (input == 2)
         {
-            print("water thingy");
+            if (iamGuard)
+            {
+                print("water thingy");
+            }
         }
 
     }
@@ -60,6 +63,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
     void Dialog()
     {
+        talking = true;
         btnUI.SetActive(false);
         dialogUI.SetActive(true);
         int currentDialog = 0;

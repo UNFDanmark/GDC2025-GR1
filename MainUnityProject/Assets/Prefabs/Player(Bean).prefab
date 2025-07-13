@@ -280,8 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fad04d402782d54b8c297ab27664912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpforce: 270
+  speed: 15
+  jumpforce: 0
   jumpdelay: 0.1
   movement: {x: 0, y: 0, z: 0}
   linearVelocity: {x: 0, y: 0, z: 0}

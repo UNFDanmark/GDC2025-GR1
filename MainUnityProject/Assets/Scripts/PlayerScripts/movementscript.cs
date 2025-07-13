@@ -32,7 +32,7 @@ public class movementscript : MonoBehaviour
         movex = Input.GetAxisRaw("Horizontal");
         
         movement = transform.forward * movez + transform.right * movex;
-        movement *= Time.deltaTime;
+        movement = movement.normalized * Time.deltaTime;
 
         rb.linearVelocity = movement * (speed * 100) + Vector3.up * rb.linearVelocity.y;
         
