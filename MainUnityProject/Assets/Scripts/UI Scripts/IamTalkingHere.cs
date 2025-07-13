@@ -23,11 +23,11 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         obj.transform.parent.GetComponent<CameraMovementScript>().enabled = false;
 
 
-        if (input == 1)
+        if (input == 0)
         {
             StartCoroutine(Dialog());
         }
-        else if (input == 2)
+        else if (input == 1)
         {
             
         }
@@ -38,11 +38,12 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
     IEnumerator Dialog()
     {
+        print("test");
         talking = true;
         btnUI.SetActive(false);
         dialogUI.SetActive(true);
         int currentDialog = 0;
-        
+        print("test2");
         TextMeshProUGUI dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();        
         
         while (talking)
@@ -54,6 +55,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
             }
             else if(Input.GetKeyDown(KeyCode.Mouse0))
             {
+                print("test3");
                 currentDialog++;
             }
             dialogText.SetText(dialog1[currentDialog]);
