@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4912545557656938052}
   - component: {fileID: 1237380767390768876}
   - component: {fileID: 2793724755575438791}
+  - component: {fileID: 2447192049485696833}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -137,6 +138,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &2447192049485696833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205667182005810122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c08cdc068802499f775f32aa19216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 3.5
+  ButtonUI: {fileID: 0}
 --- !u!1 &2073925696647770670
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +168,7 @@ GameObject:
   - component: {fileID: 4875183881692173772}
   - component: {fileID: 7455677787272136775}
   - component: {fileID: 1442704405279241722}
+  - component: {fileID: 113712421155974476}
   m_Layer: 0
   m_Name: Player(Bean)
   m_TagString: Untagged
@@ -236,7 +252,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073925696647770670}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 534eb8a8a0b377f4d9c8e01647b0de81, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -264,9 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fad04d402782d54b8c297ab27664912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  jumpforce: 270
+  speed: 15
+  jumpforce: 0
   jumpdelay: 0.1
+  movement: {x: 0, y: 0, z: 0}
+  linearVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4875183881692173772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfbfcd9fc954e64da2765edf8a39e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minXAngle: 70
+  maxXAngle: 290
 --- !u!54 &7455677787272136775
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -313,7 +333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073925696647770670}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e890b656d3ce6e43ae0a6a13d8d1191, type: 3}
   m_Name: 
@@ -322,3 +342,16 @@ MonoBehaviour:
   objVelX: 5
   objVelZ: 0
   objVelY: 2
+--- !u!114 &113712421155974476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073925696647770670}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f257eb13cba614ca4d6faaaa330817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walk_sound: {fileID: 0}

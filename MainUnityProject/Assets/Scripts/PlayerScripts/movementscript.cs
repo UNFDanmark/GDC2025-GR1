@@ -1,13 +1,20 @@
+using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class movementscript : MonoBehaviour
 {
-
+    
     public float speed = 6, jumpforce = 270, jumpdelay = 0.1f;
     bool jumping;
     Rigidbody rb;
+    
+    [SerializeField]public Vector3 movement;
+    [SerializeField]Vector3 linearVelocity;
+    
+    float movex, movez;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,12 +26,16 @@ public class movementscript : MonoBehaviour
     void Update()
     {
         
-        //movement
-        Vector3 movement = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
-        movement *= Time.deltaTime;
-
         
-        transform.position += movement * speed;
+        //movement input
+        movez = Input.GetAxisRaw("Vertical");
+        movex = Input.GetAxisRaw("Horizontal");
+        
+        movement = transform.forward * movez + transform.right * movex;
+        movement = movement.normalized * Time.deltaTime;
+
+        rb.linearVelocity = movement * (speed * 100) + Vector3.up * rb.linearVelocity.y;
+        
         
         
         
@@ -38,7 +49,7 @@ public class movementscript : MonoBehaviour
             }
         }
     }
-
+    
     IEnumerator jumpDelay()
     {
         jumping = true;
@@ -46,5 +57,6 @@ public class movementscript : MonoBehaviour
         jumping = false;
         StopAllCoroutines();
     }
+
     
 }

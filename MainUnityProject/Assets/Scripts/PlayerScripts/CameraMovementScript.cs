@@ -7,16 +7,14 @@ public class CameraMovementScript : MonoBehaviour
 {
     GameObject camera;
 
-    public float test;
     
     [SerializeField]float minXAngle = 70, maxXAngle = 270;
 
-    [SerializeField] Vector3 window;
     
     void Start()
     {
 
-        camera = UnityEngine.Camera.main.gameObject;
+        camera = Camera.main.gameObject;
         
         Cursor.lockState = CursorLockMode.Locked;
      
@@ -26,7 +24,6 @@ public class CameraMovementScript : MonoBehaviour
     {
              
 
-        window = camera.transform.rotation.eulerAngles;
         transform.Rotate(0,Input.GetAxis("Mouse X"),0);
         
         
@@ -37,4 +34,5 @@ public class CameraMovementScript : MonoBehaviour
         }
         
     }
+    
 }
