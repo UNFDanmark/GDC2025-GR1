@@ -3,21 +3,18 @@ using UnityEngine;
 
 interface IInteractable
 {
-    public bool isNPC;
     public void Interact(int input, GameObject obj)
     {
         
     }
 
-    public void ShowUI()
+    public void ShowUI(GameObject BtnUI)
     {
         
     }
 
-    public GameObject gimmeyoGameObj()
-    {
-        return GameObject()
-    }
+    
+    
 }
 
 public class IInteractor : MonoBehaviour
@@ -35,12 +32,8 @@ public class IInteractor : MonoBehaviour
             if (hit.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
                 
-                if (interactObj.isNPC)
-                {
-                    if(!interactObj.)
-                    ButtonUI.SetActive(true);
-                }
-                interactObj.ShowUI();
+                interactObj.ShowUI(ButtonUI);
+                
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactObj.Interact(1, transform.parent.gameObject);
