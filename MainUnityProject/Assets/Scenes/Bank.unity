@@ -1627,6 +1627,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3390620501685907409, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
   m_PrefabInstance: {fileID: 3094100969241062477}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &724310028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1205667182005810122, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
+  m_PrefabInstance: {fileID: 2189793937180686522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &737381105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'New Text '
+  m_text: Sample text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1757,7 +1762,7 @@ MonoBehaviour:
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_fontSizeMin: 39.21
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
@@ -3452,6 +3457,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactUI: {fileID: 1957680893}
+  textBox: {fileID: 737381105}
+  textElement: {fileID: 744179760}
+  interactor: {fileID: 724310028}
 --- !u!1 &1957680893 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
@@ -4005,6 +4013,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 722914916, guid: f89a23e3658ed364cb784cc4c3467653, type: 3}
+    - target: {fileID: 7872976470817169673, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4076,7 +4088,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 737381105}
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: canvasManager
+      value: 
+      objectReference: {fileID: 1747436110}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
       propertyPath: dialog1.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: dialogue.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
@@ -4086,6 +4106,14 @@ PrefabInstance:
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
       propertyPath: 'dialog1.Array.data[1]'
       value: NOW
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: 'dialogue.Array.data[0]'
+      value: Shit
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: 'dialogue.Array.data[1]'
+      value: Shit2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
