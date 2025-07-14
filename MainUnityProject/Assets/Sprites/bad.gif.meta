@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/bad.gif.meta
+guid: 3706754460601504f9c8a2b7580fb894
+=======
 guid: 7c1432119e61a414f9e662b826f20ea1
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/bad.gif.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

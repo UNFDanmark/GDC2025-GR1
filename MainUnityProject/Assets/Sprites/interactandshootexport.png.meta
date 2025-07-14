@@ -1,12 +1,20 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+guid: f89a23e3658ed364cb784cc4c3467653
+=======
 guid: 4c3890d7362e02c4a875ef67f1cd4588
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+    enableMipMap: 1
+=======
     enableMipMap: 0
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,6 +42,18 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+=======
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -44,6 +64,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +73,15 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 0
+=======
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -69,7 +96,11 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+    maxTextureSize: 2048
+=======
     maxTextureSize: 128
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -95,6 +126,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+    sprites: []
+=======
     sprites:
     - serializedVersion: 2
       name: interactandshootexport_0
@@ -140,11 +174,16 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
     outline: []
     customData: 
     physicsShape: []
     bones: []
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+    spriteID: 
+=======
     spriteID: 2ff705eef887e164a8d2ef19e3c46cfd
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
     internalID: 0
     vertices: []
     indices: 
@@ -153,9 +192,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD:MainUnityProject/Assets/Pixel art/UI/interactandshootexport.png.meta
+    nameFileIdTable: {}
+=======
     nameFileIdTable:
       interactandshootexport_0: 1961056331
       interactandshootexport_1: 236727783
+>>>>>>> b2b084fb93ee977a027604be9278d8f9e949d990:MainUnityProject/Assets/Sprites/interactandshootexport.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
