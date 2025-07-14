@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class IamTalkingHere : MonoBehaviour, IInteractable
 {
@@ -73,9 +74,19 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         }
     }
     
-    public void ShowUI(GameObject BtnUI)
+    public void ShowUI(GameObject[] BtnUI, GameObject[] TxtUI)
     {
-        btnUI = BtnUI;
-        if(!talking) btnUI.SetActive(true);
+        
+        if(!talking)
+        {
+            foreach (var btn in BtnUI)
+            {
+                btn.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            }
+            foreach (var txt in TxtUI)
+            {
+                txt.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            }
+        }
     }
 }
