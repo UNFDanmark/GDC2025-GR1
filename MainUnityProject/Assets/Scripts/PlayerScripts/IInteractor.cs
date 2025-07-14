@@ -1,5 +1,7 @@
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 interface IInteractable
 {
@@ -8,7 +10,7 @@ interface IInteractable
         
     }
 
-    public void ShowUI(GameObject BtnUI)
+    public void ShowUI(GameObject[] BtnUI, GameObject[] TextUI)
     {
         
     }
@@ -19,8 +21,8 @@ interface IInteractable
 
 public class IInteractor : MonoBehaviour
 {
-    [SerializeField]public float interactRange;
-    [SerializeField] GameObject ButtonUI;
+    public float interactRange;
+    [SerializeField]GameObject[] ButtonUI, TextUI;
     
     
     void Update()
@@ -32,7 +34,7 @@ public class IInteractor : MonoBehaviour
             if (hit.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
                 
-                interactObj.ShowUI(ButtonUI);
+                interactObj.ShowUI(ButtonUI, TextUI);
                 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -40,13 +42,20 @@ public class IInteractor : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.F))
                 {
-                    interactObj.Interact(1, transform.parent.gameObject);
+                    interactObj.Interact(1, gameObject);
                 }
             }
         }
         else
         {
-            ButtonUI.SetActive(false);
+            foreach (var btn in ButtonUI)
+            {
+                btn.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            }
+            foreach (var txt in TextUI)
+            {
+                txt.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            }
         }
     }
 }
