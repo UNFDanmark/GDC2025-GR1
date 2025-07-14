@@ -2005,11 +2005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68843c3b74181594c8850c475cf899ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &795096790 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
-  m_PrefabInstance: {fileID: 3094100969241062477}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &795096791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6784797290105639676, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
@@ -3522,29 +3517,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 113712421155974476, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 113712421155974476, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-      propertyPath: walk_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 8ff3dd30d5103a5499142092397a779d, type: 3}
     - target: {fileID: 2073925696647770670, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: m_Name
       value: Player (bean)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2447192049485696833, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-      propertyPath: ButtonUI
-      value: 
-      objectReference: {fileID: 795096790}
-    - target: {fileID: 2447192049485696833, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-      propertyPath: TextUI.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2447192049485696833, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-      propertyPath: ButtonUI.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2447192049485696833, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: 'TextUI.Array.data[0]'
@@ -3676,6 +3651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonInteractUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1804020300152899228, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 75864596, guid: f89a23e3658ed364cb784cc4c3467653, type: 3}
     - target: {fileID: 6784797290105639676, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
       propertyPath: m_LocalPosition.x
       value: -150
@@ -3716,6 +3695,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872976470817169673, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 722914916, guid: f89a23e3658ed364cb784cc4c3467653, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
