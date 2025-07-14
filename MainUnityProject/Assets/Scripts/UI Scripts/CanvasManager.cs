@@ -7,9 +7,10 @@ public class CanvasManager : MonoBehaviour
     public GameObject interactUI;
     public GameObject textBox;
     public TextMeshProUGUI textElement;
+    public TextMeshProUGUI speakerElement;
     bool inDialogue;
     int pageNumber = 0;
-    string[] currentDialogue;
+    DialogueData[] currentDialogue;
     public GameObject interactor;
     public void ToggleInteractUI(bool isActive)
     {
@@ -36,7 +37,7 @@ public class CanvasManager : MonoBehaviour
         interactor.GetComponent<IInteractor>().enabled = !inDialogue;
     }
 
-    public void startDialogue(string[] dialogue)
+    public void startDialogue(DialogueData[] dialogue)
     {
         pageNumber = 0;
         currentDialogue = dialogue;
@@ -45,7 +46,8 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
-        textElement.text = currentDialogue[pageNumber];
+        textElement.text = currentDialogue[pageNumber].text;
+        speakerElement.text = currentDialogue[pageNumber].Speaker;
     }
 
     void Update()

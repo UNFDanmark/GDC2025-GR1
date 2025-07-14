@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class IamTalkingHere : MonoBehaviour, IInteractable
 {
 
-    [SerializeField] string[] dialogue;
+    [SerializeField] DialogueData[] dialogue;
     [SerializeField] GameObject dialogUI;
     [SerializeField]GameObject btnUI, obj;
     [SerializeField]float delay, countdown;
@@ -45,7 +45,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         */
 
     }
-
+/*
     void Update()
     {
 
@@ -87,4 +87,5 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
             }
         }
     }
+    */
 }
