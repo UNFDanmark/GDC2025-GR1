@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class IamTalkingHere : MonoBehaviour, IInteractable
 {
 
-    [SerializeField] string[] dialog1;
+    [SerializeField] string[] dialogue;
     [SerializeField] GameObject dialogUI;
     [SerializeField]GameObject btnUI, obj;
     [SerializeField]float delay, countdown;
@@ -17,19 +17,17 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     public bool talking, Bdialog1;
     TextMeshProUGUI dialogText;
     int currentDialog;
+    public CanvasManager canvasManager;
     
     
     public void Interact(int input, GameObject Obj)
     {
-
-        obj = Obj;
-        obj.transform.parent.GetComponent<movementscript>().enabled = false;
-        obj.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-        obj.transform.parent.GetComponent<CameraMovementScript>().enabled = false;
-        obj.GetComponent<IInteractor>().enabled = false;
+        canvasManager.setDialogueState(true);
+        canvasManager.startDialogue(dialogue);
+        
 
 
-        talking = true;
+        /*talking = true;
         btnUI.SetActive(false);
         dialogUI.SetActive(true);
         dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
@@ -44,7 +42,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         {
             
         }
-        
+        */
 
     }
 
@@ -55,7 +53,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         {
             if (Bdialog1)
             {
-                if (currentDialog == dialog1.Length)
+                if (currentDialog == dialogue.Length)
                 {
                     Bdialog1 = false;
                     talking = false;
@@ -69,7 +67,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
                     print("test");
                     currentDialog++;
                 }
-                dialogText.SetText(dialog1[currentDialog]);
+                dialogText.SetText(dialogue[currentDialog]);
             }
         }
     }

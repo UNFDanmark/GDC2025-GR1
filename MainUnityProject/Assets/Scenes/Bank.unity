@@ -3346,6 +3346,7 @@ GameObject:
   - component: {fileID: 1747436108}
   - component: {fileID: 1747436107}
   - component: {fileID: 1747436106}
+  - component: {fileID: 1747436110}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3438,6 +3439,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1747436110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747436105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d5f8dd85219404bbb6ca9c5b384d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactUI: {fileID: 1957680893}
+--- !u!1 &1957680893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
+  m_PrefabInstance: {fileID: 3094100969241062477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1973031986
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,7 +3499,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1a24f282f3b50344a609a55dd821d09, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b1a24f282f3b50344a609a55dd821d09, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3792,10 +3811,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 490742442269098442, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
+      propertyPath: speed
+      value: 15.79
+      objectReference: {fileID: 0}
     - target: {fileID: 2073925696647770670, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: m_Name
       value: Player (bean)
       objectReference: {fileID: 0}
+    - target: {fileID: 2447192049485696833, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
+      propertyPath: canvasManager
+      value: 
+      objectReference: {fileID: 1747436110}
     - target: {fileID: 2447192049485696833, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: 'TextUI.Array.data[0]'
       value: 
@@ -3925,6 +3952,10 @@ PrefabInstance:
     - target: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
       propertyPath: m_Name
       value: ButtonInteractUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1804020300152899228, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
       propertyPath: m_Sprite
