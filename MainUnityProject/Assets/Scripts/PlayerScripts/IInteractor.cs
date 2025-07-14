@@ -36,7 +36,6 @@ public class IInteractor : MonoBehaviour
                 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    print(transform.parent.gameObject.name);
                     interactObj.Interact(0, gameObject);
                 }
                 else if (Input.GetKeyDown(KeyCode.F))

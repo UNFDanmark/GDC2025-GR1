@@ -8,11 +8,15 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 {
 
     [SerializeField] string[] dialog1;
-    [SerializeField] bool iamGuard;
-    [SerializeField] GameObject UI, dialogUI;
+    [SerializeField] GameObject dialogUI;
     [SerializeField]GameObject btnUI, obj;
-    public bool showingui, talking;
     [SerializeField]float delay, countdown;
+
+    
+    public bool talking, Bdialog1;
+    TextMeshProUGUI dialogText;
+    int currentDialog;
+    
     
     public void Interact(int input, GameObject Obj)
     {
@@ -21,71 +25,57 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         obj.transform.parent.GetComponent<movementscript>().enabled = false;
         obj.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         obj.transform.parent.GetComponent<CameraMovementScript>().enabled = false;
+        obj.GetComponent<IInteractor>().enabled = false;
 
 
+        talking = true;
+        btnUI.SetActive(false);
+        dialogUI.SetActive(true);
+        dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+
+        currentDialog = 0;
+        
         if (input == 0)
         {
-            StartCoroutine(Dialog());
+            Bdialog1 = true;
         }
         else if (input == 1)
         {
             
         }
         
-        
 
     }
 
-    IEnumerator Dialog()
+    void Update()
     {
-        print("test");
-        talking = true;
-        btnUI.SetActive(false);
-        dialogUI.SetActive(true);
-        int currentDialog = 0;
-        print("test2");
-        TextMeshProUGUI dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();        
-        
-        while (talking)
-        {
-            if (currentDialog == dialog1.Length)
-            {
-                talking = !talking;
-                dialogUI.SetActive(false);
-            }
-            else if(Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                print("test3");
-                currentDialog++;
-            }
-            dialogText.SetText(dialog1[currentDialog]);
-            yield return new WaitForSeconds(0.075f);
-        }
 
-        
+        if (talking)
+        {
+            if (Bdialog1)
+            {
+                if (currentDialog == dialog1.Length)
+                {
+                    Bdialog1 = false;
+                    talking = false;
+                    dialogUI.SetActive(false);
+                    obj.transform.parent.GetComponent<movementscript>().enabled = true;
+                    obj.transform.parent.GetComponent<CameraMovementScript>().enabled = true;
+                    obj.GetComponent<IInteractor>().enabled = true;
+                }
+                else if(Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    print("test");
+                    currentDialog++;
+                }
+                dialogText.SetText(dialog1[currentDialog]);
+            }
+        }
     }
     
     public void ShowUI(GameObject BtnUI)
     {
         btnUI = BtnUI;
         if(!talking) btnUI.SetActive(true);
-        showingui = true;
-        showingUI();
-    }
-    
-    void showingUI()
-    {
-        
-        UI.SetActive(true);
-        countdown = delay;
-        while(showingui)
-        {
-            countdown -= Time.deltaTime;
-            if (countdown <= 0)
-            {
-                showingui = false;
-            }
-        }
-        UI.SetActive(false);
     }
 }
