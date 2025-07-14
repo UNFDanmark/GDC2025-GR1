@@ -3507,6 +3507,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 113712421155974476, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 113712421155974476, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
+      propertyPath: walk_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ff3dd30d5103a5499142092397a779d, type: 3}
     - target: {fileID: 2073925696647770670, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: m_Name
       value: Player (bean)
@@ -3628,10 +3636,6 @@ PrefabInstance:
     - target: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
       propertyPath: m_Name
       value: ButtonInteractUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 266797052532545630, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6784797290105639676, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
       propertyPath: m_LocalPosition.x
