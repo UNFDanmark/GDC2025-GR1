@@ -12,6 +12,19 @@ public class CanvasManager : MonoBehaviour
     int pageNumber = 0;
     DialogueData[] currentDialogue;
     public GameObject interactor;
+    public GameObject shootButton;
+
+    public void ToggleShootButton(bool isActive)
+    {
+        if (isActive)
+        {
+            shootButton.SetActive(true);
+        }
+        else
+        {
+            shootButton.SetActive(false);
+        }
+    }
     public void ToggleInteractUI(bool isActive)
     {
         if (inDialogue)
