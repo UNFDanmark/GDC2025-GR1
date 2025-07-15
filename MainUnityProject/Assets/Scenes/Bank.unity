@@ -3976,7 +3976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasManager: {fileID: 1747436110}
   inventoryState:
-    hasGun: 1
+    hasGun: 0
 --- !u!1 &2078014726
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4397,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6784797290105639676, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867879072961962484, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7872976470817169673, guid: eba5a935f3cca844fbc0a6bb55659936, type: 3}
