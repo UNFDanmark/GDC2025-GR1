@@ -4522,6 +4522,10 @@ PrefabInstance:
       value: Your gaurd
       objectReference: {fileID: 0}
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: shotConversations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
       propertyPath: dialogue.Array.data[0].Speaker
       value: Guard Guy
       objectReference: {fileID: 0}
@@ -4566,12 +4570,20 @@ PrefabInstance:
       value: Hej du har ikke en pistol
       objectReference: {fileID: 0}
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: shotConversations.Array.data[0].dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
       propertyPath: dialogue.Array.data[0].dialogue.Array.data[0].Speaker
       value: Guard
       objectReference: {fileID: 0}
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
       propertyPath: dialogue.Array.data[1].dialogue.Array.data[0].Speaker
       value: Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: shotConversations.Array.data[0].inventoryState.hasGun
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
       propertyPath: conversations.Array.data[0].dialogue.Array.data[0].text
@@ -4595,6 +4607,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
       propertyPath: conversations.Array.data[1].dialogue.Array.data[1].Speaker
+      value: Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: shotConversations.Array.data[0].dialogue.Array.data[0].text
+      value: I got shot
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219796887550246080, guid: 13a3f558e61b78e479cabcb6164e6af0, type: 3}
+      propertyPath: shotConversations.Array.data[0].dialogue.Array.data[0].Speaker
       value: Guard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
