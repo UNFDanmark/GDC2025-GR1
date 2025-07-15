@@ -43,6 +43,8 @@ public class IInteractor : MonoBehaviour
                     if (transform.parent.GetComponent<InventoryManager>().inventoryState.hasGun)
                     {
                         interactObj.ShootGun(gameObject);
+                        interactObj.Interact(gameObject);
+                        
                     }
                     
                 }
