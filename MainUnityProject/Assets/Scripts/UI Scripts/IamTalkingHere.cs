@@ -12,6 +12,8 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     [SerializeField] GameObject dialogUI;
     [SerializeField]GameObject btnUI, obj;
     [SerializeField]float delay, countdown;
+    [SerializeField] ConversationData[] shotConversations;
+    
 
     
     public bool talking, Bdialog1;
@@ -30,6 +32,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
             {
                 canvasManager.startDialogue(conversations[i].dialogue);
             }
+            
         }
 
 
@@ -56,6 +59,11 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     public void ShootGun(GameObject interactor)
     {
         print("I am shot");
+        conversations = shotConversations;
+        
+
+
+
     }
     /*
     void Update()
