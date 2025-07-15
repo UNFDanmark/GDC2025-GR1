@@ -4,16 +4,10 @@ public class InventoryManager : MonoBehaviour
 {
     public CanvasManager canvasManager;
     public InventoryData inventoryState;
-    
-    void Update()
+
+    public void ChangeGunData(bool ShouldHaveGun)
     {
-        if (inventoryState.hasGun)
-        {
-            canvasManager.ToggleShootButton(true);
-        }
-        else
-        {
-            canvasManager.ToggleShootButton(false);
-        }
+        inventoryState.hasGun = ShouldHaveGun;
+        canvasManager.ToggleShootButton(ShouldHaveGun);
     }
 }

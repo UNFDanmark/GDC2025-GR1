@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class InteractSignScript : MonoBehaviour, IInteractable
 {
@@ -19,3 +19,4 @@ public class InteractSignScript : MonoBehaviour, IInteractable
         print("i showed my ui");
     }
 }
+*/
