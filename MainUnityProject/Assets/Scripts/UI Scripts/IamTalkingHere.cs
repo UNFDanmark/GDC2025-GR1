@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class IamTalkingHere : MonoBehaviour, IInteractable
 {
 
-    [SerializeField] DialogueData[] dialogue;
+    [SerializeField] ConversationData[] conversations;
     [SerializeField] GameObject dialogUI;
     [SerializeField]GameObject btnUI, obj;
     [SerializeField]float delay, countdown;
@@ -20,11 +20,18 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     public CanvasManager canvasManager;
     
     
-    public void Interact(int input, GameObject Obj)
+    public void Interact(int input, GameObject interactor)
     {
+        InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;
         canvasManager.setDialogueState(true);
-        canvasManager.startDialogue(dialogue);
-        
+        for (int i = 0; i < conversations.Length; i += 1)
+        {
+            if (conversations[i].inventoryState.isequals(inventoryState))
+            {
+                canvasManager.startDialogue(conversations[i].dialogue);
+            }
+        }
+
 
 
         /*talking = true;
@@ -33,14 +40,14 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         dialogText = dialogUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
 
         currentDialog = 0;
-        
+
         if (input == 0)
         {
             Bdialog1 = true;
         }
         else if (input == 1)
         {
-            
+
         }
         */
 

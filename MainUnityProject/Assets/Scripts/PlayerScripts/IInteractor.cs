@@ -3,12 +3,9 @@ using TMPro;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
-interface IInteractable
+public interface IInteractable
 {
-    public void Interact(int input, GameObject obj)
-    {
-        
-    }
+    public void Interact(int input, GameObject obj);
 
     public void ShowUI(GameObject[] BtnUI, GameObject[] TextUI)
     {
