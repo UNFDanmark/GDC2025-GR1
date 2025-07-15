@@ -20,7 +20,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     public CanvasManager canvasManager;
     
     
-    public void Interact(int input, GameObject interactor)
+    public void Interact(GameObject interactor)
     {
         InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;
         canvasManager.setDialogueState(true);
@@ -52,7 +52,12 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         */
 
     }
-/*
+
+    public void ShootGun(GameObject interactor)
+    {
+        print("I am shot");
+    }
+    /*
     void Update()
     {
 
