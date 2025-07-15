@@ -5,7 +5,8 @@ using Image = UnityEngine.UI.Image;
 
 public interface IInteractable
 {
-    public void Interact(int input, GameObject obj);
+    public void Interact(GameObject interactor);
+    public void ShootGun(GameObject interactor);
 
     public void ShowUI(GameObject[] BtnUI, GameObject[] TextUI)
     {
@@ -35,11 +36,15 @@ public class IInteractor : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    interactObj.Interact(0, gameObject);
+                    interactObj.Interact(gameObject);
                 }
                 else if (Input.GetKeyDown(KeyCode.F))
                 {
-                    interactObj.Interact(1, gameObject);
+                    if (transform.parent.GetComponent<InventoryManager>().inventoryState.hasGun)
+                    {
+                        interactObj.ShootGun(gameObject);
+                    }
+                    
                 }
             }
             else
