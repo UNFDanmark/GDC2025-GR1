@@ -134,8 +134,8 @@ public class CanvasManager : MonoBehaviour
     void displayPage()
     {
 
-
-        SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
+        if(currentDialogue[pageNumber].SpeakerImage != null)
+            SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
         speakerElement.text = currentDialogue[pageNumber].Speaker;
         
         StopAllCoroutines();
@@ -235,7 +235,8 @@ public class CanvasManager : MonoBehaviour
         TextElement.text = "";
         for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
         {
-            
+            if(i%4 == 0)
+                soundManager.playSound("Subtitles");
             TextElement.text += currentDialogue[pageNumber].text[i];
             
             yield return new WaitForSeconds(letterDelay);
