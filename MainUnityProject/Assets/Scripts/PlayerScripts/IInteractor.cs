@@ -5,14 +5,13 @@ using Image = UnityEngine.UI.Image;
 
 public interface IInteractable
 {
-    public void Interact(GameObject interactor, int interactoption);
+    public void Interact(GameObject interactor);
 
 }
 
 public class IInteractor : MonoBehaviour
 {
     public float interactRange;
-    [SerializeField]GameObject[] ButtonUI, TextUI;
     public CanvasManager canvasManager;
     
     void Update()
@@ -27,7 +26,7 @@ public class IInteractor : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    interactObj.Interact(gameObject, 0);
+                    interactObj.Interact(gameObject);
                 }
             }
             else
