@@ -58,14 +58,7 @@ public class IInteractor : MonoBehaviour
         {
             canvasManager.ToggleInteractUI(false);
 
-            // foreach (var btn in ButtonUI)
-            // {
-            //     btn.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-            // }
-            // foreach (var txt in TextUI)
-            // {
-            //     txt.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-            // }
+           
         }
     }
 }

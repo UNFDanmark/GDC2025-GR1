@@ -157,6 +157,7 @@ MonoBehaviour:
   TextUI:
   - {fileID: 0}
   - {fileID: 0}
+  canvasManager: {fileID: 0}
 --- !u!1 &2073925696647770670
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +175,7 @@ GameObject:
   - component: {fileID: 7455677787272136775}
   - component: {fileID: 1442704405279241722}
   - component: {fileID: 113712421155974476}
+  - component: {fileID: 6272598999131942296}
   m_Layer: 0
   m_Name: Player(Bean)
   m_TagString: Untagged
@@ -285,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fad04d402782d54b8c297ab27664912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 15.79
   jumpforce: 0
   jumpdelay: 0.1
   movement: {x: 0, y: 0, z: 0}
@@ -360,3 +362,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walk_sound: {fileID: 8300000, guid: 8ff3dd30d5103a5499142092397a779d, type: 3}
+--- !u!114 &6272598999131942296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073925696647770670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c883e09674e6685459c9e7a840f77dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasManager: {fileID: 0}
+  inventoryState:
+    hasGun: 0

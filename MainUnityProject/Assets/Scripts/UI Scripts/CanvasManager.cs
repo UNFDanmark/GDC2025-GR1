@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -5,14 +6,16 @@ using UnityEngine.PlayerLoop;
 public class CanvasManager : MonoBehaviour
 {
     public GameObject interactUI;
-    public GameObject textBox;
-    public TextMeshProUGUI textElement;
+    public GameObject textBox, textBoxEPG;
+    public TextMeshProUGUI textElement, textElementEPG;
     public TextMeshProUGUI speakerElement;
-    bool inDialogue;
+    bool inDialogue, skipTextAnim, textshown;
+    public float letterDelay;
     int pageNumber = 0;
     DialogueData[] currentDialogue;
     public GameObject interactor;
     public GameObject shootButton;
+    public SoundManager soundManager;
 
     public void ToggleShootButton(bool isActive)
     {
@@ -37,17 +40,43 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    public void setDialogueState(bool newState)
+    public void setDialogueState(bool newState, bool EPGisTalking)
     {
+        print(newState);
+        print(EPGisTalking);
+        
         inDialogue = newState;
         ToggleInteractUI(false);
 
         textBox.SetActive(inDialogue);
+        textBoxEPG.SetActive(inDialogue);
         
         interactor.transform.parent.GetComponent<movementscript>().enabled = !inDialogue;
         interactor.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         interactor.transform.parent.GetComponent<CameraMovementScript>().enabled = !inDialogue;
         interactor.GetComponent<IInteractor>().enabled = !inDialogue;
+
+        if (newState)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        
+        if (newState && EPGisTalking)
+        {
+            textBoxEPG.SetActive(true);
+            textBox.SetActive(false);
+        }
+        else if (newState)
+        {
+            textBoxEPG.SetActive(false);
+            textBox.SetActive(true);
+        }
     }
 
     public void startDialogue(DialogueData[] dialogue)
@@ -59,8 +88,21 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
-        textElement.text = currentDialogue[pageNumber].text;
         speakerElement.text = currentDialogue[pageNumber].Speaker;
+        
+        if (textBox.activeSelf)
+        {
+            textElement.text = currentDialogue[pageNumber].text;
+            //StartCoroutine(TextAnim(textElement));
+        }
+        else
+        {
+            textElementEPG.text = currentDialogue[pageNumber].text;
+            //StartCoroutine(TextAnim(textElementEPG));
+        }
+
+        textshown = true;
+
     }
 
     void Update()
@@ -72,13 +114,42 @@ public class CanvasManager : MonoBehaviour
                 pageNumber += 1;
                 if (pageNumber < currentDialogue.Length)
                 {
-                    displayPage();
+                    if (textshown)
+                    {
+                        textshown = false;
+                        displayPage();
+                    }
+                    else
+                    {
+                        skipTextAnim = true;
+                    }
                 }
                 else
                 {
-                    setDialogueState(false);
+                    setDialogueState(false, false);
                 }
             }
         }
     }
+/*
+    IEnumerator TextAnim(TextMeshProUGUI text)
+    {
+        text.text = "";
+        for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
+        {
+            if (skipTextAnim)
+            {
+                skipTextAnim = false;
+                text.text = currentDialogue[pageNumber].text;
+                StopAllCoroutines();
+            }
+            text.text += currentDialogue[pageNumber].text[i];
+            
+            yield return new WaitForSeconds(letterDelay);
+        }
+
+        textshown = true;
+    }
+    */
+    
 }

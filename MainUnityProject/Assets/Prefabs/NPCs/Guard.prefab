@@ -123,16 +123,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960e737504648d34a8fca99d02cade3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog:
-  - You are not allowed to enter here
-  - test
-  - test 2
-  iamGuard: 1
-  UI: {fileID: 0}
-  dialogUI: {fileID: 0}
-  btnUI: {fileID: 0}
-  obj: {fileID: 0}
-  showingui: 0
-  talking: 0
-  delay: 10
-  countdown: 0
+  conversations:
+  - dialogue:
+    - Speaker: Guard
+      soundName: 
+      text: Du har en pistol
+    - Speaker: Guard
+      soundName: 
+      text: Du har en pistol
+    inventoryState:
+      hasGun: 1
+  - dialogue:
+    - Speaker: Guard
+      soundName: 
+      text: Du har ikke en pistol
+    inventoryState:
+      hasGun: 0
+  shotConversations:
+  - dialogue:
+    - Speaker: Guard
+      soundName: 
+      text: I got shot
+    inventoryState:
+      hasGun: 1
+  canvasManager: {fileID: 0}
