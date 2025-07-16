@@ -5,15 +5,7 @@ using Image = UnityEngine.UI.Image;
 
 public interface IInteractable
 {
-    public void Interact(GameObject interactor);
-    public void ShootGun(GameObject interactor);
-
-    public void ShowUI(GameObject[] BtnUI, GameObject[] TextUI)
-    {
-        
-    }
-
-    
+    public void Interact(GameObject interactor, int interactoption);
     
 }
 
@@ -32,21 +24,14 @@ public class IInteractor : MonoBehaviour
             if (hit.collider.TryGetComponent(out IInteractable interactObj))
             {
                 canvasManager.ToggleInteractUI(true);
-                //interactObj.ShowUI(ButtonUI, TextUI);
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    interactObj.Interact(gameObject);
+                    interactObj.Interact(gameObject, 0);
                 }
                 else if (Input.GetKeyDown(KeyCode.F))
                 {
-                    if (transform.parent.GetComponent<InventoryManager>().inventoryState.hasGun)
-                    {
-                        interactObj.ShootGun(gameObject);
-                        interactObj.Interact(gameObject);
-                        
-                    }
-                    
+                    interactObj.Interact(gameObject, 1);
                 }
             }
             else

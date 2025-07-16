@@ -13,7 +13,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     public CanvasManager canvasManager;
     
     
-    public void Interact(GameObject interactor)
+    public void Interact(GameObject interactor, int interactoption)
     {
         InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;
         
@@ -21,7 +21,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         {
             if (conversations[i].inventoryState.isequals(inventoryState))
             {
-                canvasManager.setDialogueState(true, conversations[i].isTalkingToEarPieceGuy);
+                canvasManager.setDialogueState(true, false);
                 canvasManager.startDialogue(conversations[i].dialogue);
                 break;
             }

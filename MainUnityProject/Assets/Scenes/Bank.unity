@@ -119,6 +119,114 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &16962929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16962933}
+  - component: {fileID: 16962932}
+  - component: {fileID: 16962931}
+  - component: {fileID: 16962930}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &16962930
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16962929}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &16962931
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16962929}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 69463cdfcb98d5146a47874a0cb558cb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &16962932
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16962929}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &16962933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16962929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.21, y: 2.14, z: 11.22823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &57405924
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,8 +261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 833.65466, y: -469}
-  m_SizeDelta: {x: 216.6907, y: 100}
+  m_AnchoredPosition: {x: 789.41797, y: -469}
+  m_SizeDelta: {x: 305.1643, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57405926
 MonoBehaviour:
@@ -814,16 +922,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventData:
-  - Event: IntroDone
+  - EventName: ObjectiveShows
     PlaySound: 0
     Sound: 
     ChangeInventory: 0
     Inventory:
       hasGun: 0
-    ChangeObjective: 0
-    NewObjective: 
+    ChangeObjective: 1
+    NewObjective: Approach teller
+    EPGTalks: 0
+    ToggleObjectVisibility: 1
+    Object: {fileID: 1834652263}
   soundManager: {fileID: 1174970702}
   PlayerInv: {fileID: 2189793937180686523}
+  EPG: {fileID: 743017460}
+  objectiveText: {fileID: 1297942884}
 --- !u!4 &390026730
 Transform:
   m_ObjectHideFlags: 0
@@ -1095,13 +1208,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495014661}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -92.921425, y: 0, z: 110.67359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 600129865}
-  m_Father: {fileID: 945397613}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592726834
 GameObject:
@@ -1590,7 +1703,7 @@ GameObject:
   - component: {fileID: 743017461}
   - component: {fileID: 743017460}
   m_Layer: 0
-  m_Name: IntroDialog
+  m_Name: EPG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1608,22 +1721,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff29b2be5a56cee47ac563d717675107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2030906951}
   conversations:
-  - isTalkingToEarPieceGuy: 1
-    dialogue:
-    - Speaker: Person
+  - dialogue:
+    - Speaker: EPG
       soundName: 
-      text: Test Test you do that la
-    - Speaker: Person
+      text: Your Mother
+      PlayEvent: 
+    - Speaker: EPG
       soundName: 
-      text: wsdasd
-    - Speaker: Person
+      text: Your Father
+      PlayEvent: 
+    - Speaker: EPG
       soundName: 
-      text: wwww
+      text: AHHHHHHHHHHHHHHHHHH
+      PlayEvent: ObjectiveShows
     inventoryState:
       hasGun: 0
   canvasManager: {fileID: 1747436110}
+  EPGDialogProgression: 0
 --- !u!4 &743017461
 Transform:
   m_ObjectHideFlags: 0
@@ -2505,8 +2620,6 @@ Transform:
   - {fileID: 958945946}
   - {fileID: 1748201025}
   - {fileID: 105089431}
-  - {fileID: 495014662}
-  - {fileID: 1775702957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &958945945
@@ -3160,8 +3273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 833.65, y: -469}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 789.42017, y: -469}
+  m_SizeDelta: {x: 305.16, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1297942884
 MonoBehaviour:
@@ -3210,15 +3323,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 60
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMax: 60
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3996,11 +4109,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversations:
-  - isTalkingToEarPieceGuy: 0
-    dialogue: []
+  - dialogue: []
     inventoryState:
       hasGun: 0
-  shotConversations: []
+  shotConversations:
+  - dialogue: []
+    inventoryState:
+      hasGun: 0
   canvasManager: {fileID: 1747436110}
 --- !u!1 &1639476718
 GameObject:
@@ -4586,8 +4701,7 @@ MonoBehaviour:
   interactor: {fileID: 724310028}
   shootButton: {fileID: 786027749}
   soundManager: {fileID: 1174970702}
-  objective: {fileID: 0}
-  objTextElement: {fileID: 0}
+  EventManager: {fileID: 390026729}
 --- !u!1 &1748201024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,13 +4834,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775702956}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -92.921425, y: 0, z: 110.67359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1611776488}
-  m_Father: {fileID: 945397613}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1789056130
 PrefabInstance:
@@ -5001,7 +5115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1834652264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5255,11 +5369,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &2030906951 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2073925696647770670, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
-  m_PrefabInstance: {fileID: 2189793937180686522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2066505667
 GameObject:
   m_ObjectHideFlags: 0
@@ -5565,7 +5674,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6272598999131942296, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
   m_PrefabInstance: {fileID: 2189793937180686522}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030906951}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c883e09674e6685459c9e7a840f77dc0, type: 3}
@@ -5721,6 +5830,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 2189793937180686522}
+  - {fileID: 743017461}
   - {fileID: 2890705027769791290}
   - {fileID: 1747436109}
   - {fileID: 745230535}
@@ -5728,10 +5838,12 @@ SceneRoots:
   - {fileID: 1174970703}
   - {fileID: 1973031988}
   - {fileID: 1826717371}
-  - {fileID: 743017461}
   - {fileID: 945397613}
+  - {fileID: 495014662}
+  - {fileID: 1775702957}
   - {fileID: 1359474559}
   - {fileID: 2118091743}
   - {fileID: 1789056130}
   - {fileID: 1648269412}
   - {fileID: 390026730}
+  - {fileID: 16962933}

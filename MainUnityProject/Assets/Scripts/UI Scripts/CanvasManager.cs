@@ -16,10 +16,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject interactor;
     public GameObject shootButton;
     public SoundManager soundManager;
-    
-    //Objective
-    public GameObject objective;
-    public TextMeshProUGUI objTextElement;
+    public EventManagerScript EventManager;
+   
 
     public void ToggleShootButton(bool isActive)
     {
@@ -46,9 +44,6 @@ public class CanvasManager : MonoBehaviour
 
     public void setDialogueState(bool newState, bool EPGisTalking)
     {
-        print(newState);
-        print(EPGisTalking);
-        
         inDialogue = newState;
         ToggleInteractUI(false);
 
@@ -92,6 +87,9 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
+        
+        
+        
         speakerElement.text = currentDialogue[pageNumber].Speaker;
         
         if (textBox.activeSelf)
@@ -115,6 +113,7 @@ public class CanvasManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
                 pageNumber += 1;
                 if (pageNumber < currentDialogue.Length)
                 {
@@ -136,18 +135,18 @@ public class CanvasManager : MonoBehaviour
         }
     }
 /*
-    IEnumerator TextAnim(TextMeshProUGUI text)
+    public IEnumerator TextAnim(TextMeshProUGUI TextElement)
     {
-        text.text = "";
+        TextElement.text = "";
         for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
         {
             if (skipTextAnim)
             {
                 skipTextAnim = false;
-                text.text = currentDialogue[pageNumber].text;
+                TextElement.text = currentDialogue[pageNumber].text;
                 StopAllCoroutines();
             }
-            text.text += currentDialogue[pageNumber].text[i];
+            TextElement.text += currentDialogue[pageNumber].text[i];
             
             yield return new WaitForSeconds(letterDelay);
         }

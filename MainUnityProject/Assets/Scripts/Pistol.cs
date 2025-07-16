@@ -3,14 +3,9 @@ using UnityEngine;
 public class Pistol : MonoBehaviour, IInteractable
 {
     
-    public void Interact( GameObject interactor)
+    public void Interact( GameObject interactor, int interactoption)
     {
         interactor.transform.parent.GetComponent<InventoryManager>().ChangeGunData(true);
         Destroy(gameObject);
-    }
-
-    public void ShootGun(GameObject interactor)
-    {
-        throw new System.NotImplementedException();
     }
 }
