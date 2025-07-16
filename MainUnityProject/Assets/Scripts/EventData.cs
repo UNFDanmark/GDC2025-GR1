@@ -3,7 +3,7 @@ using UnityEngine;
 public class EventData
 {
     //EventName
-    public string Event;
+    public string EventName;
     [Space(20)]
     
     //sound
@@ -19,6 +19,14 @@ public class EventData
     //Objective
     public bool ChangeObjective;
     public string NewObjective;
+    [Space(20)]
 
-    
+    //EPG Talks
+    public bool EPGTalks;
+    [Space(20)]
+
+    //Toggles Object Visibility
+    public bool ToggleObjectVisibility;
+    public GameObject Object;
+
 }

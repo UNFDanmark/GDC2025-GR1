@@ -1,16 +1,20 @@
 using UnityEngine;
+using TMPro;
 
 public class EventManagerScript : MonoBehaviour
 {
-    public EventData[] eventData;
+    [SerializeField] EventData[] eventData;
     [SerializeField] SoundManager soundManager;
     [SerializeField] InventoryManager PlayerInv;
+    [SerializeField] EarPieceGuy EPG;
+    [SerializeField] TextMeshProUGUI objectiveText;
+    
 
-    void PlayEvent(string Event)
+    public void PlayEvent(string Event)
     {
         for (int i = 0; i < eventData.Length; i += 1)
         {
-            if (eventData[i].Event == Event)
+            if (eventData[i].EventName == Event)
             {
                 
                 if (eventData[i].PlaySound)
@@ -25,7 +29,18 @@ public class EventManagerScript : MonoBehaviour
 
                 if (eventData[i].ChangeObjective)
                 {
-            
+                    objectiveText.text = eventData[i].NewObjective;
+                }
+
+                if (eventData[i].EPGTalks)
+                {
+                    EPG.EPGDialogProgression++;
+                    EPG.HeTalks();
+                }
+
+                if (eventData[i].ToggleObjectVisibility)
+                {
+                    eventData[i].Object.SetActive(!eventData[i].Object.activeSelf);
                 }
                 break;
             }
