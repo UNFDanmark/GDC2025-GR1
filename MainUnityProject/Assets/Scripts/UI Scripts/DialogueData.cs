@@ -9,4 +9,5 @@ public class DialogueData
     public string text;
     
     public string PlayEvent = "";
+
 }

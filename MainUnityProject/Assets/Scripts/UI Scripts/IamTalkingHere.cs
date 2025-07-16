@@ -19,7 +19,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
         
         for (int i = 0; i < conversations.Length; i += 1)
         {
-            if (conversations[i].inventoryState.isequals(inventoryState))
+            if (conversations[i].inventoryState.isequals(inventoryState) && interactoption == conversations[i].interactoption)
             {
                 canvasManager.setDialogueState(true, false);
                 canvasManager.startDialogue(conversations[i].dialogue);
@@ -28,21 +28,6 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
             
         }
 
-
-
-        
-
     }
-
-    public void ShootGun(GameObject interactor)
-    {
-        print("I am shot");
-        conversations = shotConversations;
-        
-
-
-
-    }
-    
     
 }
