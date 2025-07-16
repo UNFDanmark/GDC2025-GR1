@@ -25,7 +25,6 @@ public class CanvasManager : MonoBehaviour
     
     public void ToggleInteractUI(bool isActive)
     {
-        print("test");
         if (inDialogue)
         {
             interactUI.SetActive(false);
