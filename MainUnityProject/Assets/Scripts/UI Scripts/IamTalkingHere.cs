@@ -17,18 +17,8 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     public void Interact(GameObject interactor)
     {
         
-        InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;
-        
-        for (int i = 0; i < conversations.Length; i += 1)
-        {
-            if (conversations[i].inventoryState.isequals(inventoryState))
-            {
-                canvasManager.setDialogueState(true, false);
-                canvasManager.startDialogue(conversations[i].dialogue, uiDataManager);
-                break;
-            }
-            
-        }
+        canvasManager.setDialogueState(true, false);
+        canvasManager.CheckDialogues(conversations, uiDataManager);
 
     }
     

@@ -10,7 +10,7 @@ public class CanvasManager : MonoBehaviour
     public TextMeshProUGUI text1, text2, text3;
     public TextMeshProUGUI textElement, textElementEPG;
     public TextMeshProUGUI speakerElement;
-    bool inDialogue, skipTextAnim, textshown;
+    bool inDialogue, textshown;
     public float letterDelay;
     int pageNumber = 0;
     DialogueData[] currentDialogue;
@@ -19,7 +19,7 @@ public class CanvasManager : MonoBehaviour
     public EventManagerScript EventManager;
     public InventoryManager InventoryManager;
 
-
+    ConversationData[] conversation;
     UIDataManager uiDataManager;
     
     
@@ -88,18 +88,36 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    public void startDialogue(DialogueData[] dialogue, UIDataManager uiData)
+    public void CheckDialogues(ConversationData[] conversations, UIDataManager UIDataManager)
     {
-        uiDataManager = uiData;
+        conversation = conversations;
+        
+        for (int i = 0; i < conversations.Length; i += 1)
+        {
+            if (conversations[i].inventoryState.isequals(InventoryManager.inventoryState) && UIDataManager.options == conversations[i].interactoption)
+            {
+                currentDialogue = conversations[i].dialogue;
+                startDialogue(currentDialogue, UIDataManager);
+                break;
+            }
+            
+        }
+    }
+    
+    
+    public void startDialogue(DialogueData[] dialogue, UIDataManager UiDataManager)
+    {
+        
+        uiDataManager = UiDataManager;
         pageNumber = 0;
         currentDialogue = dialogue;
         displayPage();
 
         if (textBox.activeSelf)
         {
-            text1.text = uiData.UIData[uiData.options].Text1;
-            text2.text = uiData.UIData[uiData.options].Text2;
-            text3.text = uiData.UIData[uiData.options].Text3;
+            text1.text = UiDataManager.UIData[UiDataManager.options].Text1;
+            text2.text = UiDataManager.UIData[UiDataManager.options].Text2;
+            text3.text = UiDataManager.UIData[UiDataManager.options].Text3;
         }
         
     }
@@ -131,7 +149,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (inDialogue)
         {
-            if (pageNumber == 0)
+            if (pageNumber == 0 && uiDataManager.options == 0)
             {
                 if (textBoxEPG.activeSelf && Input.GetKeyDown(KeyCode.Mouse0))
                 {
@@ -145,27 +163,32 @@ public class CanvasManager : MonoBehaviour
                     }
                     else
                     {
-                        skipTextAnim = true;
+                        StopAllCoroutines();
+                        textElement.text = currentDialogue[pageNumber].text;
+                        textElementEPG.text = currentDialogue[pageNumber].text;
                         textshown = true;
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 0;
-                    pageNumber += 1;
+                    uiDataManager.options = 1;
+                    pageNumber = 1;
+                    CheckDialogues(conversation, uiDataManager);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
                     EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 1;
-                    pageNumber += 1;
+                    uiDataManager.options = 2;
+                    pageNumber = 1;
+                    CheckDialogues(conversation, uiDataManager);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
                     EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 2;
-                    pageNumber += 1;
+                    uiDataManager.options = 3;
+                    pageNumber = 1;
+                    CheckDialogues(conversation, uiDataManager);
                 }
             }
             else if (Input.GetMouseButtonDown(0))
@@ -183,13 +206,16 @@ public class CanvasManager : MonoBehaviour
                     }
                     else
                     {
-                        skipTextAnim = true;
+                        StopAllCoroutines();
+                        textElement.text = currentDialogue[pageNumber].text;
+                        textElementEPG.text = currentDialogue[pageNumber].text;
                         textshown = true;
                     }
                 }
                 else
                 {
                     setDialogueState(false, false);
+                    uiDataManager.options = 0;
                 }
             }
         }
@@ -200,12 +226,7 @@ public class CanvasManager : MonoBehaviour
         TextElement.text = "";
         for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
         {
-            if (skipTextAnim)
-            {
-                skipTextAnim = false;
-                TextElement.text = currentDialogue[pageNumber].text;
-                StopAllCoroutines();
-            }
+            
             TextElement.text += currentDialogue[pageNumber].text[i];
             
             yield return new WaitForSeconds(letterDelay);
