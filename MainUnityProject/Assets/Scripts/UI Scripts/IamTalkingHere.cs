@@ -9,12 +9,14 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 {
 
     [SerializeField] ConversationData[] conversations;
-    [SerializeField] ConversationData[] shotConversations;
     public CanvasManager canvasManager;
-    
+    public UIData[] UIdata { get; set; }
+    public UIData[] UIData;
     
     public void Interact(GameObject interactor, int interactoption)
     {
+        UIdata = UIData;
+        
         InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;
         
         for (int i = 0; i < conversations.Length; i += 1)

@@ -30,7 +30,7 @@ public class CanvasManager : MonoBehaviour
             shootButton.SetActive(false);
         }
     }
-    public void ToggleInteractUI(bool isActive)
+    public void ToggleInteractUI(bool isActive, UIData[] UIdata)
     {
         if (inDialogue)
         {
@@ -45,7 +45,7 @@ public class CanvasManager : MonoBehaviour
     public void setDialogueState(bool newState, bool EPGisTalking)
     {
         inDialogue = newState;
-        ToggleInteractUI(false);
+        ToggleInteractUI(false, new UIData[1]);
 
         textBox.SetActive(inDialogue);
         textBoxEPG.SetActive(inDialogue);

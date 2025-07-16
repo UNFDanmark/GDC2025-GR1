@@ -5,8 +5,9 @@ using Image = UnityEngine.UI.Image;
 
 public interface IInteractable
 {
+    public UIData[] UIdata { get; set; }
     public void Interact(GameObject interactor, int interactoption);
-    
+
 }
 
 public class IInteractor : MonoBehaviour
@@ -23,7 +24,7 @@ public class IInteractor : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out IInteractable interactObj))
             {
-                canvasManager.ToggleInteractUI(true);
+                canvasManager.ToggleInteractUI(true, interactObj.UIdata);
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -36,12 +37,12 @@ public class IInteractor : MonoBehaviour
             }
             else
             {
-                canvasManager.ToggleInteractUI(false);
+                canvasManager.ToggleInteractUI(false, new UIData[1]);
             }
         }
         else
         {
-            canvasManager.ToggleInteractUI(false);
+            canvasManager.ToggleInteractUI(false, new UIData[1]);
 
            
         }
