@@ -134,8 +134,13 @@ public class CanvasManager : MonoBehaviour
     void displayPage()
     {
 
-        if(currentDialogue[pageNumber].SpeakerImage != null)
+        if (currentDialogue[pageNumber].SpeakerImage != null)
+        {
             SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
+            SpeakerImage.gameObject.SetActive(true);
+        }
+        else 
+            SpeakerImage.gameObject.SetActive(false);
         speakerElement.text = currentDialogue[pageNumber].Speaker;
         
         StopAllCoroutines();
