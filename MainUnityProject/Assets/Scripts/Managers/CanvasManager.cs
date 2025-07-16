@@ -2,6 +2,9 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
+using Image = UnityEngine.UI.Image;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -21,6 +24,8 @@ public class CanvasManager : MonoBehaviour
 
     ConversationData[] conversation;
     [SerializeField]UIDataManager uiDataManager;
+    
+    [SerializeField]Image SpeakerImage;
     
     
     public void ToggleInteractUI(bool isActive)
@@ -128,9 +133,9 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
-        
-        
-        
+
+
+        SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
         speakerElement.text = currentDialogue[pageNumber].Speaker;
         
         StopAllCoroutines();
