@@ -29,10 +29,6 @@ public class IInteractor : MonoBehaviour
                 {
                     interactObj.Interact(gameObject, 0);
                 }
-                else if (Input.GetKeyDown(KeyCode.F))
-                {
-                    interactObj.Interact(gameObject, 1);
-                }
             }
             else
             {

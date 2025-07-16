@@ -953,7 +953,7 @@ MonoBehaviour:
     ChangeObjective: 0
     NewObjective: 
     EPGTalks: 0
-    ToggleObjectVisibility: 1
+    ToggleObjectVisibility: 0
     Object: {fileID: 0}
   soundManager: {fileID: 1174970702}
   PlayerInv: {fileID: 2189793937180686523}
@@ -1647,14 +1647,6 @@ MonoBehaviour:
       soundName: 
       text: And what is that little thing in the left corner? It looks- and the stain??
         Did a toddler make this??
-      PlayEvent: 
-    inventoryState:
-      hasGun: 0
-    interactoption: 0
-  - dialogue:
-    - Speaker: EPG
-      soundName: 
-      text: get the gun dumbass
       PlayEvent: 
     inventoryState:
       hasGun: 0
@@ -3966,6 +3958,7 @@ GameObject:
   - component: {fileID: 1611776490}
   - component: {fileID: 1611776489}
   - component: {fileID: 1611776492}
+  - component: {fileID: 1611776493}
   m_Layer: 0
   m_Name: Receptionist
   m_TagString: Untagged
@@ -4080,51 +4073,53 @@ MonoBehaviour:
   - dialogue:
     - Speaker: Teller
       soundName: 
-      text: This person dosent even have a gun
-      PlayEvent: EPG2
+      text: a
+      PlayEvent: 
     inventoryState:
       hasGun: 0
     interactoption: 0
   - dialogue:
     - Speaker: Teller
       soundName: 
-      text: i bet you still dont have a gun
-      PlayEvent: 
-    - Speaker: Teller
-      soundName: 
-      text: AH A GUN
+      text: b
       PlayEvent: 
     inventoryState:
-      hasGun: 1
+      hasGun: 0
     interactoption: 1
+  - dialogue:
+    - Speaker: Teller
+      soundName: 
+      text: c
+      PlayEvent: 
+    inventoryState:
+      hasGun: 0
+    interactoption: 2
   canvasManager: {fileID: 1747436110}
-  UI_Data:
+  uiDataManager: {fileID: 1611776493}
+--- !u!114 &1611776493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611776487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88fb35869a748ee46ad17784f4fcca1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIData:
   - button1Enabled: 1
-    button1Text: 
     InventoryCondition_btn1:
       hasGun: 0
     button2Enabled: 0
-    button2Text: 
     InventoryCondition_btn2:
       hasGun: 1
-    button3Enabled: 0
-    button3Text: 
-    InventoryCondition_btn3:
-      hasGun: 0
+    Text1: Direct
+    Text2: Subtle
+    Text3: Lick the Counter
     font: 0
-  - button1Enabled: 0
-    button1Text: 
-    InventoryCondition_btn1:
-      hasGun: 0
-    button2Enabled: 0
-    button2Text: 
-    InventoryCondition_btn2:
-      hasGun: 0
-    button3Enabled: 0
-    button3Text: 
-    InventoryCondition_btn3:
-      hasGun: 0
-    font: 0
+  options: 0
 --- !u!1 &1639476718
 GameObject:
   m_ObjectHideFlags: 0
