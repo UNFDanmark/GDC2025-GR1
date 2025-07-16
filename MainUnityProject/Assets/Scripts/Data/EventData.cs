@@ -23,6 +23,7 @@ public class EventData
 
     //EPG Talks
     public bool EPGTalks;
+    public int EPGDialogProgression;
     [Space(20)]
 
     //Toggles Object Visibility

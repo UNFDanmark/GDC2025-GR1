@@ -20,7 +20,7 @@ public class CanvasManager : MonoBehaviour
     public InventoryManager InventoryManager;
 
     ConversationData[] conversation;
-    UIDataManager uiDataManager;
+    [SerializeField]UIDataManager uiDataManager;
     
     
     public void ToggleInteractUI(bool isActive)
@@ -108,7 +108,11 @@ public class CanvasManager : MonoBehaviour
     public void startDialogue(DialogueData[] dialogue, UIDataManager UiDataManager)
     {
         
-        uiDataManager = UiDataManager;
+        
+        if(UiDataManager)
+            uiDataManager = UiDataManager;
+        else if (!uiDataManager)
+            uiDataManager = new UIDataManager();
         pageNumber = 0;
         currentDialogue = dialogue;
         displayPage();

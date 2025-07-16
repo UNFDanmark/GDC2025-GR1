@@ -34,7 +34,7 @@ public class EventManagerScript : MonoBehaviour
 
                 if (eventData[i].EPGTalks)
                 {
-                    EPG.EPGDialogProgression++;
+                    EPG.EPGDialogProgression = eventData[i].EPGDialogProgression;
                     EPG.HeTalks();
                 }
 
