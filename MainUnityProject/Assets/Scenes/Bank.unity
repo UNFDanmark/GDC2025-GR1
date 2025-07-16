@@ -1846,7 +1846,7 @@ MonoBehaviour:
     dialogue:
     - Speaker: Person
       soundName: 
-      text: Test Test
+      text: Test Test you do that la
     - Speaker: Person
       soundName: 
       text: wsdasd
@@ -4012,10 +4012,12 @@ MonoBehaviour:
   textBox: {fileID: 737381105}
   textBoxEPG: {fileID: 2066505667}
   textElement: {fileID: 744179760}
+  textElementEPG: {fileID: 592726836}
   speakerElement: {fileID: 1651902522}
-  letterDelay: 0
+  letterDelay: 0.1
   interactor: {fileID: 724310028}
   shootButton: {fileID: 786027749}
+  soundManager: {fileID: 0}
 --- !u!1 &1826717366
 GameObject:
   m_ObjectHideFlags: 0
