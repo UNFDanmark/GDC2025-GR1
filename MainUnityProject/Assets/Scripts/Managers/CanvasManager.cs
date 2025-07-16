@@ -133,6 +133,7 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
+        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
 
         if (currentDialogue[pageNumber].SpeakerImage != null)
         {
@@ -214,7 +215,6 @@ public class CanvasManager : MonoBehaviour
                     {
                        
                         textshown = false;
-                        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
                         pageNumber += 1;
                         displayPage();
                     }
