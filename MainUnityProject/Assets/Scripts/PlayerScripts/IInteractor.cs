@@ -13,6 +13,7 @@ public class IInteractor : MonoBehaviour
 {
     public float interactRange;
     public CanvasManager canvasManager;
+    public SoundManager SoundManager;
     
     void Update()
     {
@@ -26,6 +27,7 @@ public class IInteractor : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    SoundManager.playSound("InteractSoundE");
                     interactObj.Interact(gameObject);
                 }
             }
