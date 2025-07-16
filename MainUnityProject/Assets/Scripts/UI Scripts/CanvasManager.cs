@@ -16,6 +16,10 @@ public class CanvasManager : MonoBehaviour
     public GameObject interactor;
     public GameObject shootButton;
     public SoundManager soundManager;
+    
+    //Objective
+    public GameObject objective;
+    public TextMeshProUGUI objTextElement;
 
     public void ToggleShootButton(bool isActive)
     {
