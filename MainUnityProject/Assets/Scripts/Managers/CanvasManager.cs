@@ -53,7 +53,9 @@ public class CanvasManager : MonoBehaviour
         interactor.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         interactor.transform.parent.GetComponent<CameraMovementScript>().enabled = !inDialogue;
         interactor.GetComponent<IInteractor>().enabled = !inDialogue;
-
+        
+        
+        
         if (newState)
         {
             Cursor.lockState = CursorLockMode.Confined;
@@ -74,6 +76,15 @@ public class CanvasManager : MonoBehaviour
         {
             textBoxEPG.SetActive(false);
             textBox.SetActive(true);
+            text1.gameObject.SetActive(true);
+            text2.gameObject.SetActive(true);
+            text3.gameObject.SetActive(true);
+        }
+        else
+        {
+            text1.gameObject.SetActive(false);
+            text2.gameObject.SetActive(false);
+            text3.gameObject.SetActive(false);
         }
     }
 
@@ -100,6 +111,8 @@ public class CanvasManager : MonoBehaviour
         
         speakerElement.text = currentDialogue[pageNumber].Speaker;
         
+        StopAllCoroutines();
+        
         if (textBox.activeSelf)
         {
             //textElement.text = currentDialogue[pageNumber].text;
@@ -111,7 +124,6 @@ public class CanvasManager : MonoBehaviour
             StartCoroutine(TextAnim(textElementEPG));
         }
 
-        textshown = true;
 
     }
 
@@ -121,34 +133,58 @@ public class CanvasManager : MonoBehaviour
         {
             if (pageNumber == 0)
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (textBoxEPG.activeSelf && Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    uiDataManager.options = 0;
-                }
-                else if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    uiDataManager.options = 1;
-                }
-                else if (Input.GetKeyDown(KeyCode.Alpha3))
-                {
-                    uiDataManager.options = 2;
-                }
-            }
-            else if (Input.GetMouseButtonDown(0))
-            {
-                EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                pageNumber += 1;
-                
-                if (pageNumber < currentDialogue.Length)
-                {
+                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
                     if (textshown)
                     {
+                       
                         textshown = false;
+                        pageNumber += 1;
                         displayPage();
                     }
                     else
                     {
                         skipTextAnim = true;
+                        textshown = true;
+                    }
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
+                    uiDataManager.options = 0;
+                    pageNumber += 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
+                    uiDataManager.options = 1;
+                    pageNumber += 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
+                    uiDataManager.options = 2;
+                    pageNumber += 1;
+                }
+            }
+            else if (Input.GetMouseButtonDown(0))
+            {
+                
+                if (pageNumber < currentDialogue.Length)
+                {
+                    if (textshown)
+                    {
+                       
+                        textshown = false;
+                        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
+                        pageNumber += 1;
+                        displayPage();
+                    }
+                    else
+                    {
+                        skipTextAnim = true;
+                        textshown = true;
                     }
                 }
                 else

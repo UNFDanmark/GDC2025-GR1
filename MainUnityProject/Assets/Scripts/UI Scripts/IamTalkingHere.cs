@@ -14,7 +14,7 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
 
    
 
-    public void Interact(GameObject interactor, int interactoption)
+    public void Interact(GameObject interactor)
     {
         
         InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;

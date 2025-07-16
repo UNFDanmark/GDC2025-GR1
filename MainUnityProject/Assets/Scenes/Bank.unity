@@ -4844,7 +4844,7 @@ MonoBehaviour:
   textElement: {fileID: 744179760}
   textElementEPG: {fileID: 592726836}
   speakerElement: {fileID: 1651902522}
-  letterDelay: 0.1
+  letterDelay: 0.05
   interactor: {fileID: 724310028}
   soundManager: {fileID: 1174970702}
   EventManager: {fileID: 390026729}
