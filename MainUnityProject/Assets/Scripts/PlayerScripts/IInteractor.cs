@@ -24,6 +24,7 @@ public class IInteractor : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out IInteractable interactObj))
             {
+                print(interactObj.UIdata);
                 canvasManager.ToggleInteractUI(true, interactObj.UIdata);
 
                 if (Input.GetKeyDown(KeyCode.E))

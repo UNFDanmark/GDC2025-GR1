@@ -5,8 +5,9 @@ using UnityEngine.PlayerLoop;
 
 public class CanvasManager : MonoBehaviour
 {
-    public GameObject interactUI;
+    public GameObject interactUI, Btn1, Btn2;
     public GameObject textBox, textBoxEPG;
+    public TextMeshProUGUI text1, text2;
     public TextMeshProUGUI textElement, textElementEPG;
     public TextMeshProUGUI speakerElement;
     bool inDialogue, skipTextAnim, textshown;
@@ -14,31 +15,43 @@ public class CanvasManager : MonoBehaviour
     int pageNumber = 0;
     DialogueData[] currentDialogue;
     public GameObject interactor;
-    public GameObject shootButton;
     public SoundManager soundManager;
     public EventManagerScript EventManager;
+    public InventoryManager InventoryManager;
    
 
-    public void ToggleShootButton(bool isActive)
-    {
-        if (isActive)
-        {
-            shootButton.SetActive(true);
-        }
-        else
-        {
-            shootButton.SetActive(false);
-        }
-    }
+    
     public void ToggleInteractUI(bool isActive, UIData[] UIdata)
     {
         if (inDialogue)
         {
             interactUI.SetActive(false);
         }
+        else if(isActive)
+        {
+            interactUI.SetActive(true);            
+            
+            text1.text = UIdata[0].button1Text;
+            text2.text = UIdata[0].button2Text;
+
+            if (UIdata[0].InventoryCondition_btn1.isequals(InventoryManager.inventoryState)||UIdata[0].button1Enabled)
+            {
+                
+                Btn1.SetActive(UIdata[0].button1Enabled);
+            }
+
+            if (UIdata[0].InventoryCondition_btn2.isequals(InventoryManager.inventoryState)||UIdata[0].button2Enabled)
+            {
+                
+                Btn2.SetActive(UIdata[0].button2Enabled);
+            }
+            
+            
+            
+        }
         else
         {
-            interactUI.SetActive(isActive);
+            interactUI.SetActive(false);
         }
     }
 
@@ -111,6 +124,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (inDialogue)
         {
+            
             if (Input.GetMouseButtonDown(0))
             {
                 EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 

@@ -11,11 +11,16 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     [SerializeField] ConversationData[] conversations;
     public CanvasManager canvasManager;
     public UIData[] UIdata { get; set; }
-    public UIData[] UIData;
-    
+    public UIData[] UI_Data;
+
+    void Start()
+    {
+        UIdata = UI_Data;
+    }
+
     public void Interact(GameObject interactor, int interactoption)
     {
-        UIdata = UIData;
+        UIdata = UI_Data;
         
         InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;
         
