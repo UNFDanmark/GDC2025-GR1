@@ -13,36 +13,21 @@ public class IamTalkingHere : MonoBehaviour, IInteractable
     public CanvasManager canvasManager;
     
     
-    public void Interact(GameObject interactor)
+    public void Interact(GameObject interactor, int interactoption)
     {
         InventoryData inventoryState = interactor.transform.parent.GetComponent<InventoryManager>().inventoryState;
         
         for (int i = 0; i < conversations.Length; i += 1)
         {
-            if (conversations[i].inventoryState.isequals(inventoryState))
+            if (conversations[i].inventoryState.isequals(inventoryState) && interactoption == conversations[i].interactoption)
             {
-                canvasManager.setDialogueState(true, conversations[i].isTalkingToEarPieceGuy);
+                canvasManager.setDialogueState(true, false);
                 canvasManager.startDialogue(conversations[i].dialogue);
                 break;
             }
             
         }
 
-
-
-        
-
     }
-
-    public void ShootGun(GameObject interactor)
-    {
-        print("I am shot");
-        conversations = shotConversations;
-        
-
-
-
-    }
-    
     
 }
