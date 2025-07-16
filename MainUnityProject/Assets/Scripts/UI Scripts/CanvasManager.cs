@@ -7,7 +7,7 @@ public class CanvasManager : MonoBehaviour
 {
     public GameObject interactUI, Btn1, Btn2;
     public GameObject textBox, textBoxEPG;
-    public TextMeshProUGUI text1, text2;
+    public TextMeshProUGUI text1, text2, text3;
     public TextMeshProUGUI textElement, textElementEPG;
     public TextMeshProUGUI speakerElement;
     bool inDialogue, skipTextAnim, textshown;
@@ -21,44 +21,28 @@ public class CanvasManager : MonoBehaviour
    
 
     
-    public void ToggleInteractUI(bool isActive, UIData[] UIdata)
+    public void ToggleInteractUI(bool isActive)
     {
         if (inDialogue)
         {
             interactUI.SetActive(false);
         }
-        else if(isActive)
-        {
-            interactUI.SetActive(true);            
-            
-            text1.text = UIdata[0].button1Text;
-            text2.text = UIdata[0].button2Text;
-
-            if (UIdata[0].InventoryCondition_btn1.isequals(InventoryManager.inventoryState)||UIdata[0].button1Enabled)
-            {
-                
-                Btn1.SetActive(UIdata[0].button1Enabled);
-            }
-
-            if (UIdata[0].InventoryCondition_btn2.isequals(InventoryManager.inventoryState)||UIdata[0].button2Enabled)
-            {
-                
-                Btn2.SetActive(UIdata[0].button2Enabled);
-            }
-            
-            
-            
-        }
         else
         {
-            interactUI.SetActive(false);
+            interactUI.SetActive(true);
+            Btn1.SetActive(isActive);
+            if (InventoryManager.inventoryState.hasGun)
+            {
+                Btn2.SetActive(isActive);
+            }
         }
+        
     }
 
     public void setDialogueState(bool newState, bool EPGisTalking)
     {
         inDialogue = newState;
-        ToggleInteractUI(false, new UIData[1]);
+        ToggleInteractUI(false);
 
         textBox.SetActive(inDialogue);
         textBoxEPG.SetActive(inDialogue);
@@ -91,11 +75,19 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    public void startDialogue(DialogueData[] dialogue)
+    public void startDialogue(DialogueData[] dialogue, UIDataManager uiData)
     {
         pageNumber = 0;
         currentDialogue = dialogue;
         displayPage();
+
+        if (textBox.activeSelf)
+        {
+            text1.text = uiData.UIData[uiData.options].Text1;
+            text2.text = uiData.UIData[uiData.options].Text2;
+            text3.text = uiData.UIData[uiData.options].Text3;
+        }
+        
     }
 
     void displayPage()

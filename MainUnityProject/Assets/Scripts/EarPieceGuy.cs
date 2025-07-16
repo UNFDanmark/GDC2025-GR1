@@ -15,6 +15,6 @@ public class EarPieceGuy : MonoBehaviour
     public void HeTalks()
     {
         canvasManager.setDialogueState(true, true);
-        canvasManager.startDialogue(conversations[EPGDialogProgression].dialogue);
+        canvasManager.startDialogue(conversations[EPGDialogProgression].dialogue, new UIDataManager());
     }
 }
