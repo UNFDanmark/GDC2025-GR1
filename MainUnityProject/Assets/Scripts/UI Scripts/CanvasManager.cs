@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -5,10 +6,11 @@ using UnityEngine.PlayerLoop;
 public class CanvasManager : MonoBehaviour
 {
     public GameObject interactUI;
-    public GameObject textBox;
+    public GameObject textBox, textBoxEPG;
     public TextMeshProUGUI textElement;
     public TextMeshProUGUI speakerElement;
-    bool inDialogue;
+    bool inDialogue, skipTextAnim;
+    public float letterDelay;
     int pageNumber = 0;
     DialogueData[] currentDialogue;
     public GameObject interactor;
@@ -37,17 +39,32 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    public void setDialogueState(bool newState)
+    public void setDialogueState(bool newState, bool EPGisTalking)
     {
+        print(newState);
+        print(EPGisTalking);
+        
         inDialogue = newState;
         ToggleInteractUI(false);
 
         textBox.SetActive(inDialogue);
+        textBoxEPG.SetActive(inDialogue);
         
         interactor.transform.parent.GetComponent<movementscript>().enabled = !inDialogue;
         interactor.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         interactor.transform.parent.GetComponent<CameraMovementScript>().enabled = !inDialogue;
         interactor.GetComponent<IInteractor>().enabled = !inDialogue;
+
+        if (newState && EPGisTalking)
+        {
+            textBoxEPG.SetActive(true);
+            textBox.SetActive(false);
+        }
+        else if (newState)
+        {
+            textBoxEPG.SetActive(false);
+            textBox.SetActive(true);
+        }
     }
 
     public void startDialogue(DialogueData[] dialogue)
@@ -76,9 +93,15 @@ public class CanvasManager : MonoBehaviour
                 }
                 else
                 {
-                    setDialogueState(false);
+                    setDialogueState(false, false);
                 }
             }
         }
     }
+/*
+    IEnumerator TextAnim()
+    {
+        yield return new WaitForSeconds()
+    }
+    */
 }
