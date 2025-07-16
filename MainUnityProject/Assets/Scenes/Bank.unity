@@ -933,17 +933,6 @@ MonoBehaviour:
     EPGTalks: 0
     ToggleObjectVisibility: 1
     Object: {fileID: 1834652263}
-  - EventName: EPG2
-    PlaySound: 0
-    Sound: 
-    ChangeInventory: 0
-    Inventory:
-      hasGun: 0
-    ChangeObjective: 0
-    NewObjective: 
-    EPGTalks: 1
-    ToggleObjectVisibility: 0
-    Object: {fileID: 0}
   - EventName: PlanPromt
     PlaySound: 0
     Sound: 
@@ -953,8 +942,8 @@ MonoBehaviour:
     ChangeObjective: 0
     NewObjective: 
     EPGTalks: 0
-    ToggleObjectVisibility: 0
-    Object: {fileID: 0}
+    ToggleObjectVisibility: 1
+    Object: {fileID: 608206074}
   soundManager: {fileID: 1174970702}
   PlayerInv: {fileID: 2189793937180686523}
   EPG: {fileID: 743017460}
@@ -1591,6 +1580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdddf0c1ee4e704d9218e44cb69739d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WFFDTime: 1
+  CM: {fileID: 1747436110}
+  Plan: {fileID: 1580409255}
 --- !u!1 &658448107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1778,7 @@ MonoBehaviour:
     - Speaker: EPG
       soundName: 
       text: ...Check your pockets, you must have a plan on you.
-      PlayEvent: PlanPromt
+      PlayEvent: 
     - Speaker: EPG
       soundName: 
       text: What the hell is this? You call this a "plan"? This is NOT a plan, it's
@@ -5090,7 +5082,7 @@ MonoBehaviour:
   textElement: {fileID: 744179760}
   textElementEPG: {fileID: 592726836}
   speakerElement: {fileID: 1651902522}
-  letterDelay: 0.05
+  letterDelay: 0.025
   interactor: {fileID: 724310028}
   soundManager: {fileID: 1174970702}
   EventManager: {fileID: 390026729}
@@ -5545,7 +5537,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1973031988}
   - component: {fileID: 1973031989}
-  - component: {fileID: 1973031990}
   m_Layer: 0
   m_Name: Ambient sound
   m_TagString: Untagged
@@ -5581,7 +5572,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 857ef54b62e766849afd71b12ce9e24a, type: 3}
   m_Resource: {fileID: 8300000, guid: 857ef54b62e766849afd71b12ce9e24a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.12
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5591,103 +5582,6 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 54.87259
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!82 &1973031990
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973031986}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 857ef54b62e766849afd71b12ce9e24a, type: 3}
-  m_Resource: {fileID: 8300000, guid: 857ef54b62e766849afd71b12ce9e24a, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5881,6 +5775,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 113712421155974476, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
+      propertyPath: Delay
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2073925696647770670, guid: 9382b5f750cbb3e4f91ecfb7cd8e6d3a, type: 3}
       propertyPath: m_Name
       value: Player (bean)

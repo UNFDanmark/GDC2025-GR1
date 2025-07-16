@@ -1,14 +1,28 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class WalkingSoundClip : MonoBehaviour
 {
     [SerializeField] AudioClip walk_sound;
-    void Update()
+    [SerializeField] float Delay = .3f;
+
+    void Start()
     {
-        if (GetComponent<movementscript>().movement != Vector3.zero)
+        StartCoroutine(walksound());
+    }
+
+    IEnumerator walksound()
+    {
+        while (true)
         {
-            AudioSource.PlayClipAtPoint(walk_sound, transform.position + Vector3.down * 1);
+            if (GetComponent<movementscript>().movement != Vector3.zero)
+            {
+                AudioSource.PlayClipAtPoint(walk_sound, transform.position + Vector3.down * 1);
+            }
+
+            yield return new WaitForSeconds(Delay);
         }
+        
     }
 }
