@@ -1980,6 +1980,7 @@ MonoBehaviour:
     ChangeObjective: 1
     NewObjective: Approach teller
     EPGTalks: 0
+    EPGDialogProgression: 0
     ToggleObjectVisibility: 1
     Object: {fileID: 1834652263}
   - EventName: PlanPromt
@@ -1991,7 +1992,44 @@ MonoBehaviour:
     ChangeObjective: 0
     NewObjective: 
     EPGTalks: 0
+    EPGDialogProgression: 0
     ToggleObjectVisibility: 1
+    Object: {fileID: 608206074}
+  - EventName: DirectOption
+    PlaySound: 0
+    Sound: 
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 1
+    EPGDialogProgression: 1
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
+  - EventName: SubtleOption
+    PlaySound: 0
+    Sound: 
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 1
+    EPGDialogProgression: 2
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
+  - EventName: LickTheTableOption
+    PlaySound: 0
+    Sound: 
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 1
+    EPGDialogProgression: 3
+    ToggleObjectVisibility: 0
     Object: {fileID: 608206074}
   soundManager: {fileID: 1174970702}
   PlayerInv: {fileID: 2189793937180686523}
@@ -4352,6 +4390,44 @@ MonoBehaviour:
     inventoryState:
       hasGun: 0
     interactoption: 0
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: 'Ooookay.. Bold choice. I like the confidence... Hm. Some advice:'
+      PlayEvent: 
+    - Speaker: Driver
+      soundName: 
+      text: Next time, maybe whisper it. Or just don't say it like you're asking
+        for a happy meal.
+      PlayEvent: 
+    inventoryState:
+      hasGun: 0
+    interactoption: 1
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: Two forms of ID? pause 2 seconds You barely brought one functioning brain
+        cell.
+      PlayEvent: 
+    - Speaker: Driver
+      soundName: 
+      text: Okay, so your plan is 'die in paperwork.' Got it.
+      PlayEvent: 
+    inventoryState:
+      hasGun: 0
+    interactoption: 1
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: Wow. You've really raised the bar for bad decision-making...
+      PlayEvent: 
+    - Speaker: Driver
+      soundName: 
+      text: And lowered hygeine standards.
+      PlayEvent: 
+    inventoryState:
+      hasGun: 0
+    interactoption: 1
   canvasManager: {fileID: 1747436110}
   EPGDialogProgression: 0
 --- !u!4 &743017461
@@ -6182,7 +6258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &985311497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9710,7 +9786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1505281294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11052,7 +11128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1656317018
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12695,44 +12771,60 @@ MonoBehaviour:
   - dialogue:
     - Speaker: Teller
       soundName: 
-      text: ABC
+      text: Hello Welcome to First National
       PlayEvent: 
     inventoryState:
       hasGun: 0
     interactoption: 0
   - dialogue:
-    - Speaker: Teller
+    - Speaker: Player
       soundName: 
-      text: a
+      text: Hello! I'm here to rob the bank.
       PlayEvent: 
     - Speaker: Teller
       soundName: 
-      text: tawfawdaw
+      text: "\u2026Excuse me?"
       PlayEvent: 
+    - Speaker: Teller
+      soundName: 
+      text: "You can\u2019t just.. Announce that."
+      PlayEvent: 
+    - Speaker: Teller
+      soundName: 
+      text: "\u2026Are you... Smiling right now?"
+      PlayEvent: DirectOption
     inventoryState:
       hasGun: 0
     interactoption: 1
   - dialogue:
-    - Speaker: Teller
+    - Speaker: Player
       soundName: 
-      text: b
+      text: I'm here to make a withdrawal... Of.. Everything.
       PlayEvent: 
     - Speaker: Teller
       soundName: 
-      text: gwadwad
+      text: "So\u2026 you\u2019re closing your account?"
       PlayEvent: 
+    - Speaker: Teller
+      soundName: 
+      text: "\u2026Please provide two forms of ID."
+      PlayEvent: 
+    - Speaker: Teller
+      soundName: 
+      text: "\u2026Please provide two forms of ID."
+      PlayEvent: SubtleOption
     inventoryState:
       hasGun: 0
     interactoption: 2
   - dialogue:
     - Speaker: Teller
       soundName: 
-      text: c
+      text: Excuse me? Ew... Ugh..
       PlayEvent: 
     - Speaker: Teller
       soundName: 
-      text: wadwad
-      PlayEvent: 
+      text: This is a bank, not a buffet...
+      PlayEvent: LickTheTableOption
     inventoryState:
       hasGun: 0
     interactoption: 3

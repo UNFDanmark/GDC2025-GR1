@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EarPieceGuy : MonoBehaviour
 {
-    [SerializeField] ConversationData[] conversations;
+    public ConversationData[] conversations;
     public CanvasManager canvasManager;
     public int EPGDialogProgression;
 
@@ -15,6 +15,6 @@ public class EarPieceGuy : MonoBehaviour
     public void HeTalks()
     {
         canvasManager.setDialogueState(true, true);
-        canvasManager.startDialogue(conversations[EPGDialogProgression].dialogue, new UIDataManager());
+        canvasManager.startDialogue(conversations[EPGDialogProgression].dialogue, null);
     }
 }
