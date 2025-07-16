@@ -133,6 +133,7 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
+        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
 
         if (currentDialogue[pageNumber].SpeakerImage != null)
         {
@@ -189,6 +190,7 @@ public class CanvasManager : MonoBehaviour
                     uiDataManager.options = 1;
                     pageNumber = 1;
                     CheckDialogues(conversation, uiDataManager);
+                    soundManager.playSound("DialogSound");
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
@@ -196,6 +198,7 @@ public class CanvasManager : MonoBehaviour
                     uiDataManager.options = 2;
                     pageNumber = 1;
                     CheckDialogues(conversation, uiDataManager);
+                    soundManager.playSound("DialogSound");
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
@@ -203,6 +206,7 @@ public class CanvasManager : MonoBehaviour
                     uiDataManager.options = 3;
                     pageNumber = 1;
                     CheckDialogues(conversation, uiDataManager);
+                    soundManager.playSound("DialogSound");
                 }
             }
             else if (Input.GetMouseButtonDown(0))
@@ -214,7 +218,6 @@ public class CanvasManager : MonoBehaviour
                     {
                        
                         textshown = false;
-                        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
                         pageNumber += 1;
                         displayPage();
                     }
