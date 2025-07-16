@@ -2,6 +2,9 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
+using Image = UnityEngine.UI.Image;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -20,7 +23,9 @@ public class CanvasManager : MonoBehaviour
     public InventoryManager InventoryManager;
 
     ConversationData[] conversation;
-    UIDataManager uiDataManager;
+    [SerializeField]UIDataManager uiDataManager;
+    
+    [SerializeField]Image SpeakerImage;
     
     
     public void ToggleInteractUI(bool isActive)
@@ -108,7 +113,11 @@ public class CanvasManager : MonoBehaviour
     public void startDialogue(DialogueData[] dialogue, UIDataManager UiDataManager)
     {
         
-        uiDataManager = UiDataManager;
+        
+        if(UiDataManager)
+            uiDataManager = UiDataManager;
+        else if (!uiDataManager)
+            uiDataManager = new UIDataManager();
         pageNumber = 0;
         currentDialogue = dialogue;
         displayPage();
@@ -124,9 +133,9 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
-        
-        
-        
+
+        if(currentDialogue[pageNumber].SpeakerImage != null)
+            SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
         speakerElement.text = currentDialogue[pageNumber].Speaker;
         
         StopAllCoroutines();
@@ -226,7 +235,8 @@ public class CanvasManager : MonoBehaviour
         TextElement.text = "";
         for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
         {
-            
+            if(i%4 == 0)
+                soundManager.playSound("Subtitles");
             TextElement.text += currentDialogue[pageNumber].text[i];
             
             yield return new WaitForSeconds(letterDelay);

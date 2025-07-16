@@ -575,6 +575,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b7a80fd82b8663c4d9638a8f5eeef919, type: 3}
   m_PrefabInstance: {fileID: 105568307}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &105823918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105823919}
+  - component: {fileID: 105823921}
+  - component: {fileID: 105823920}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &105823919
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105823918}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 737381106}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &105823920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105823918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &105823921
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105823918}
+  m_CullTransparentMesh: 1
 --- !u!1001 &120318164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1980,6 +2055,7 @@ MonoBehaviour:
     ChangeObjective: 1
     NewObjective: Approach teller
     EPGTalks: 0
+    EPGDialogProgression: 0
     ToggleObjectVisibility: 1
     Object: {fileID: 1834652263}
   - EventName: PlanPromt
@@ -1991,7 +2067,56 @@ MonoBehaviour:
     ChangeObjective: 0
     NewObjective: 
     EPGTalks: 0
+    EPGDialogProgression: 0
     ToggleObjectVisibility: 1
+    Object: {fileID: 608206074}
+  - EventName: DirectOption
+    PlaySound: 0
+    Sound: 
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 1
+    EPGDialogProgression: 1
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
+  - EventName: SubtleOption
+    PlaySound: 0
+    Sound: 
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 1
+    EPGDialogProgression: 2
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
+  - EventName: LickTheTableOption
+    PlaySound: 0
+    Sound: 
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 1
+    EPGDialogProgression: 3
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
+  - EventName: SideEye
+    PlaySound: 1
+    Sound: SideEye
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 0
+    EPGDialogProgression: 3
+    ToggleObjectVisibility: 0
     Object: {fileID: 608206074}
   soundManager: {fileID: 1174970702}
   PlayerInv: {fileID: 2189793937180686523}
@@ -2241,6 +2366,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416053128}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &436360781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -98.19697
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32.433765
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
+      propertyPath: m_Name
+      value: npc_karakter_with_bones
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eed1088468fe2446a10a0a7d3bbeefb, type: 3}
 --- !u!1001 &453961396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4193,7 +4375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &737381106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4207,14 +4389,15 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 157788302}
+  - {fileID: 105823919}
   - {fileID: 744179759}
   - {fileID: 1651902520}
   m_Father: {fileID: 1747436109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &739935293
 PrefabInstance:
@@ -4330,28 +4513,77 @@ MonoBehaviour:
       text: Hello?? Can you hear me? Blink twice if yes- wait, no... Crap, nevermind.
         Can't see you.
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: Are youuu... okay? Actually, uh- No. Don't answer that. It's too late
         to turn back now.
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: ...Check your pockets, you must have a plan on you.
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: What the hell is this? You call this a "plan"? This is NOT a plan, it's
         a suggestion at best - a bad one!
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: And what is that little thing in the left corner? It looks- and the stain??
         Did a toddler make this??
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: 'Ooookay.. Bold choice. I like the confidence... Hm. Some advice:'
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: Next time, maybe whisper it. Or just don't say it like you're asking
+        for a happy meal.
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    inventoryState:
+      hasGun: 0
+    interactoption: 1
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: Two forms of ID? pause 2 seconds You barely brought one functioning brain
+        cell.
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: Okay, so your plan is 'die in paperwork.' Got it.
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    inventoryState:
+      hasGun: 0
+    interactoption: 1
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: Wow. You've really raised the bar for bad decision-making...
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: And lowered hygeine standards.
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    inventoryState:
+      hasGun: 0
+    interactoption: 1
   canvasManager: {fileID: 1747436110}
   EPGDialogProgression: 0
 --- !u!4 &743017461
@@ -6182,7 +6414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &985311497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7375,8 +7607,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - soundName: Ambient
-    sound: {fileID: 8300000, guid: b1a24f282f3b50344a609a55dd821d09, type: 3}
+  - soundName: LickSound
+    sound: {fileID: 8300000, guid: e9aaa847d6c2bdb4186e8e018bca0e66, type: 3}
+  - soundName: SideEyeSound
+    sound: {fileID: 8300000, guid: 0f911d0d5241d6d41b9f1c1006e2c425, type: 3}
+  - soundName: Subtitles
+    sound: {fileID: 8300000, guid: f6a5fb046890e5945b34888f1de9d40b, type: 3}
   level: 0.5
 --- !u!4 &1174970703
 Transform:
@@ -9710,7 +9946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1505281294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10653,6 +10889,7 @@ MonoBehaviour:
       soundName: 
       text: ABC
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
@@ -10661,10 +10898,12 @@ MonoBehaviour:
       soundName: 
       text: a
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: tawfawdaw
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
@@ -10673,10 +10912,12 @@ MonoBehaviour:
       soundName: 
       text: b
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: gwadwad
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 2
@@ -10685,10 +10926,12 @@ MonoBehaviour:
       soundName: 
       text: c
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: wadwad
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 3
@@ -11052,7 +11295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1656317018
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11967,6 +12210,8 @@ MonoBehaviour:
   soundManager: {fileID: 1174970702}
   EventManager: {fileID: 390026729}
   InventoryManager: {fileID: 2189793937180686523}
+  uiDataManager: {fileID: 0}
+  SpeakerImage: {fileID: 105823920}
 --- !u!1 &1748201024
 GameObject:
   m_ObjectHideFlags: 0
@@ -12695,44 +12940,71 @@ MonoBehaviour:
   - dialogue:
     - Speaker: Teller
       soundName: 
-      text: ABC
+      text: Hello Welcome to First National
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
   - dialogue:
+    - Speaker: Player
+      soundName: 
+      text: Hello! I'm here to rob the bank.
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
-      text: a
+      text: "\u2026Excuse me?"
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
-      text: tawfawdaw
-      PlayEvent: 
+      text: "You can\u2019t just.. Announce that."
+      PlayEvent: SideEye
+      SpeakerImage: {fileID: 0}
+    - Speaker: Teller
+      soundName: 
+      text: "\u2026Are you... Smiling right now?"
+      PlayEvent: DirectOption
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
   - dialogue:
+    - Speaker: Player
+      soundName: 
+      text: I'm here to make a withdrawal... Of.. Everything.
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
-      text: b
+      text: "So\u2026 you\u2019re closing your account?"
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
-      text: gwadwad
+      text: "\u2026Please provide two forms of ID."
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    - Speaker: Teller
+      soundName: 
+      text: "\u2026Please provide two forms of ID."
+      PlayEvent: SubtleOption
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 2
   - dialogue:
     - Speaker: Teller
       soundName: 
-      text: c
+      text: Excuse me? Ew... Ugh..
       PlayEvent: 
+      SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
-      text: wadwad
-      PlayEvent: 
+      text: This is a bank, not a buffet...
+      PlayEvent: LickTheTableOption
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 3
@@ -14182,13 +14454,13 @@ SceneRoots:
   - {fileID: 2890705027769791290}
   - {fileID: 1747436109}
   - {fileID: 745230535}
+  - {fileID: 390026730}
   - {fileID: 1174970703}
   - {fileID: 1973031988}
   - {fileID: 1826717371}
   - {fileID: 945397613}
   - {fileID: 495014662}
   - {fileID: 1775702957}
-  - {fileID: 390026730}
   - {fileID: 16962933}
   - {fileID: 994393298}
   - {fileID: 523280353}
@@ -14223,3 +14495,4 @@ SceneRoots:
   - {fileID: 1952598608}
   - {fileID: 1836308853}
   - {fileID: 718352715}
+  - {fileID: 436360781}
