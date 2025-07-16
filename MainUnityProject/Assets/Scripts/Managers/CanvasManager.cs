@@ -5,8 +5,9 @@ using UnityEngine.PlayerLoop;
 
 public class CanvasManager : MonoBehaviour
 {
-    public GameObject interactUI;
+    public GameObject interactUI, Btn1, Btn2;
     public GameObject textBox, textBoxEPG;
+    public TextMeshProUGUI text1, text2, text3;
     public TextMeshProUGUI textElement, textElementEPG;
     public TextMeshProUGUI speakerElement;
     bool inDialogue, skipTextAnim, textshown;
@@ -14,22 +15,14 @@ public class CanvasManager : MonoBehaviour
     int pageNumber = 0;
     DialogueData[] currentDialogue;
     public GameObject interactor;
-    public GameObject shootButton;
     public SoundManager soundManager;
     public EventManagerScript EventManager;
-   
+    public InventoryManager InventoryManager;
 
-    public void ToggleShootButton(bool isActive)
-    {
-        if (isActive)
-        {
-            shootButton.SetActive(true);
-        }
-        else
-        {
-            shootButton.SetActive(false);
-        }
-    }
+
+    UIDataManager uiDataManager;
+    
+    
     public void ToggleInteractUI(bool isActive)
     {
         if (inDialogue)
@@ -39,7 +32,13 @@ public class CanvasManager : MonoBehaviour
         else
         {
             interactUI.SetActive(isActive);
+            Btn1.SetActive(isActive);
+            if (InventoryManager.inventoryState.hasGun)
+            {
+                Btn2.SetActive(isActive);
+            }
         }
+        
     }
 
     public void setDialogueState(bool newState, bool EPGisTalking)
@@ -78,11 +77,20 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    public void startDialogue(DialogueData[] dialogue)
+    public void startDialogue(DialogueData[] dialogue, UIDataManager uiData)
     {
+        uiDataManager = uiData;
         pageNumber = 0;
         currentDialogue = dialogue;
         displayPage();
+
+        if (textBox.activeSelf)
+        {
+            text1.text = uiData.UIData[uiData.options].Text1;
+            text2.text = uiData.UIData[uiData.options].Text2;
+            text3.text = uiData.UIData[uiData.options].Text3;
+        }
+        
     }
 
     void displayPage()
@@ -94,13 +102,13 @@ public class CanvasManager : MonoBehaviour
         
         if (textBox.activeSelf)
         {
-            textElement.text = currentDialogue[pageNumber].text;
-            //StartCoroutine(TextAnim(textElement));
+            //textElement.text = currentDialogue[pageNumber].text;
+            StartCoroutine(TextAnim(textElement));
         }
         else
         {
-            textElementEPG.text = currentDialogue[pageNumber].text;
-            //StartCoroutine(TextAnim(textElementEPG));
+            //textElementEPG.text = currentDialogue[pageNumber].text;
+            StartCoroutine(TextAnim(textElementEPG));
         }
 
         textshown = true;
@@ -111,10 +119,26 @@ public class CanvasManager : MonoBehaviour
     {
         if (inDialogue)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (pageNumber == 0)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    uiDataManager.options = 0;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    uiDataManager.options = 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    uiDataManager.options = 2;
+                }
+            }
+            else if (Input.GetMouseButtonDown(0))
             {
                 EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
                 pageNumber += 1;
+                
                 if (pageNumber < currentDialogue.Length)
                 {
                     if (textshown)
@@ -134,7 +158,7 @@ public class CanvasManager : MonoBehaviour
             }
         }
     }
-/*
+
     public IEnumerator TextAnim(TextMeshProUGUI TextElement)
     {
         TextElement.text = "";
@@ -153,6 +177,6 @@ public class CanvasManager : MonoBehaviour
 
         textshown = true;
     }
-    */
+    
     
 }

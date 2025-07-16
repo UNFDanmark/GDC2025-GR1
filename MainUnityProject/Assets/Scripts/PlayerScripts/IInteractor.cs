@@ -6,7 +6,7 @@ using Image = UnityEngine.UI.Image;
 public interface IInteractable
 {
     public void Interact(GameObject interactor, int interactoption);
-    
+
 }
 
 public class IInteractor : MonoBehaviour
@@ -28,10 +28,6 @@ public class IInteractor : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactObj.Interact(gameObject, 0);
-                }
-                else if (Input.GetKeyDown(KeyCode.F))
-                {
-                    interactObj.Interact(gameObject, 1);
                 }
             }
             else
