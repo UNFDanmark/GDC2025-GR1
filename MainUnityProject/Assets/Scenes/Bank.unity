@@ -469,11 +469,6 @@ MonoBehaviour:
       text: "\u2026Please provide two forms of ID."
       PlayEvent: 
       SpeakerImage: {fileID: 0}
-    - Speaker: Teller
-      soundName: 
-      text: "\u2026Please provide two forms of ID."
-      PlayEvent: SubtleOption
-      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 2
