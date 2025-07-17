@@ -3180,6 +3180,18 @@ MonoBehaviour:
     EPGDialogProgression: 4
     ToggleObjectVisibility: 0
     Object: {fileID: 608206074}
+  - EventName: GunAcquired
+    PlaySound: 0
+    Sound: LickSound
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: find weapon
+    EPGTalks: 1
+    EPGDialogProgression: 5
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
   soundManager: {fileID: 1174970702}
   PlayerInv: {fileID: 2189793937180686523}
   EPG: {fileID: 743017460}
@@ -5661,8 +5673,7 @@ MonoBehaviour:
   - dialogue:
     - Speaker: Driver
       soundName: 
-      text: Two forms of ID? pause 2 seconds You barely brought one functioning brain
-        cell.
+      text: Two forms of ID?           You barely brought one functioning brain cell.
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
@@ -5716,6 +5727,31 @@ MonoBehaviour:
     inventoryState:
       hasGun: 0
     interactoption: 4
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: You've acquired a weapon!            Wait... Just... Laying around?
+      font: {fileID: 0}
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: You sure it's real? Like heavy? Cold? Clicky? ...You licked it?? Why
+        did you lick it???
+      font: {fileID: 0}
+      PlayEvent: LickTheTableOption
+      SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: Okay, okay, a gun is a gun. Just aim it at the guy and don't do anything
+        dumb. Dumber. I mean dumber.
+      font: {fileID: 0}
+      PlayEvent: 
+      SpeakerImage: {fileID: 0}
+    inventoryState:
+      hasGun: 0
+    interactoption: 5
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   canvasManager: {fileID: 1747436110}
   EPGDialogProgression: 0
@@ -14374,6 +14410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e1b0a50fac1bd4fa027c02ca246522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 0}
 --- !u!65 &1826717368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14656,6 +14693,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fbc7a2eab1588f34cb2ac222d3549ec7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1846014273}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fbc7a2eab1588f34cb2ac222d3549ec7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1846014277}
   m_SourcePrefab: {fileID: 100100000, guid: fbc7a2eab1588f34cb2ac222d3549ec7, type: 3}
 --- !u!1 &1846014272 stripped
 GameObject:
@@ -14674,6 +14714,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e1b0a50fac1bd4fa027c02ca246522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 390026729}
+--- !u!65 &1846014277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846014272}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.26943, y: 1.5, z: 6.0382004}
+  m_Center: {x: 0.013517051, y: 0, z: -3.0191}
 --- !u!1001 &1854640492
 PrefabInstance:
   m_ObjectHideFlags: 0

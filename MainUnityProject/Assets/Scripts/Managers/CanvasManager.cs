@@ -135,31 +135,29 @@ public class CanvasManager : MonoBehaviour
 
     void displayPage()
     {
-        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-
-        if (currentDialogue[pageNumber].SpeakerImage != null)
-        {
-            SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
-            SpeakerImage.gameObject.SetActive(true);
-        }
-        else 
-            SpeakerImage.gameObject.SetActive(false);
-        speakerElement.text = currentDialogue[pageNumber].Speaker;
-        
         StopAllCoroutines();
-        
-        if (textBox.activeSelf)
+        if (currentDialogue.Length > pageNumber)
         {
-            //textElement.text = currentDialogue[pageNumber].text;
-            StartCoroutine(TextAnim(textElement));
-        }
-        else
-        {
-            //textElementEPG.text = currentDialogue[pageNumber].text;
-            StartCoroutine(TextAnim(textElementEPG));
-        }
+            EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
 
-
+            if (currentDialogue[pageNumber].SpeakerImage != null)
+            {
+                SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
+                SpeakerImage.gameObject.SetActive(true);
+            }
+            else 
+                SpeakerImage.gameObject.SetActive(false);
+            speakerElement.text = currentDialogue[pageNumber].Speaker;
+            
+            if (textBox.activeSelf)
+            {
+                StartCoroutine(TextAnim(textElement));
+            }
+            else
+            {
+                StartCoroutine(TextAnim(textElementEPG));
+            }
+        }
     }
 
     void Update()
@@ -206,7 +204,8 @@ public class CanvasManager : MonoBehaviour
                 else
                 {
                     setDialogueState(false, false);
-                    uiDataManager.options = 0;
+                    if(uiDataManager != null)
+                        uiDataManager.options = 0;
                 }
             }
         }
@@ -214,6 +213,7 @@ public class CanvasManager : MonoBehaviour
 
     public IEnumerator TextAnim(TextMeshProUGUI TextElement)
     {
+        print(currentConversation.fallbackfont);
         if (currentDialogue[pageNumber].font == null)
             textElement.font = currentConversation.fallbackfont;
         else
@@ -240,7 +240,8 @@ public class CanvasManager : MonoBehaviour
     }
     public void OptionsClick(int ChosenOption)
     {
-        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
+        if(currentDialogue.Length > pageNumber)
+            EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
         uiDataManager.options = ChosenOption;
         pageNumber = 1;
         CheckDialogues(conversation, uiDataManager);
