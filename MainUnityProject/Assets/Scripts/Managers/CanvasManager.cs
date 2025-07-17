@@ -26,6 +26,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]UIDataManager uiDataManager;
     
     [SerializeField]Image SpeakerImage;
+
+    ConversationData currentConversation;
     
     
     public void ToggleInteractUI(bool isActive)
@@ -40,7 +42,7 @@ public class CanvasManager : MonoBehaviour
             Btn1.SetActive(isActive);
             if (InventoryManager.inventoryState.hasGun)
             {
-                Btn2.SetActive(isActive);
+                //Btn2.SetActive(isActive);
             }
         }
         
@@ -65,12 +67,20 @@ public class CanvasManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            text1.gameObject.SetActive(!EPGisTalking);
+            text2.gameObject.SetActive(!EPGisTalking);
+            text3.gameObject.SetActive(!EPGisTalking);
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            text1.gameObject.SetActive(false);
+            text2.gameObject.SetActive(false);
+            text3.gameObject.SetActive(false);
         }
+        
+        
         
         if (newState && EPGisTalking)
         {
@@ -81,15 +91,6 @@ public class CanvasManager : MonoBehaviour
         {
             textBoxEPG.SetActive(false);
             textBox.SetActive(true);
-            text1.gameObject.SetActive(true);
-            text2.gameObject.SetActive(true);
-            text3.gameObject.SetActive(true);
-        }
-        else
-        {
-            text1.gameObject.SetActive(false);
-            text2.gameObject.SetActive(false);
-            text3.gameObject.SetActive(false);
         }
     }
 
@@ -102,6 +103,7 @@ public class CanvasManager : MonoBehaviour
             if (conversations[i].inventoryState.isequals(InventoryManager.inventoryState) && UIDataManager.options == conversations[i].interactoption)
             {
                 currentDialogue = conversations[i].dialogue;
+                currentConversation = conversations[i];
                 startDialogue(currentDialogue, UIDataManager);
                 break;
             }
@@ -113,7 +115,7 @@ public class CanvasManager : MonoBehaviour
     public void startDialogue(DialogueData[] dialogue, UIDataManager UiDataManager)
     {
         
-        
+        print("");
         if(UiDataManager)
             uiDataManager = UiDataManager;
         else if (!uiDataManager)
@@ -124,90 +126,70 @@ public class CanvasManager : MonoBehaviour
 
         if (textBox.activeSelf)
         {
-            text1.text = UiDataManager.UIData[UiDataManager.options].Text1;
-            text2.text = UiDataManager.UIData[UiDataManager.options].Text2;
-            text3.text = UiDataManager.UIData[UiDataManager.options].Text3;
+            text1.text = UiDataManager.UIData[0].Text1;
+            text2.text = UiDataManager.UIData[0].Text2;
+            text3.text = UiDataManager.UIData[0].Text3;
         }
         
     }
 
     void displayPage()
     {
-        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-
-        if (currentDialogue[pageNumber].SpeakerImage != null)
+        if (currentDialogue.Length > pageNumber)
         {
-            SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
-            SpeakerImage.gameObject.SetActive(true);
-        }
-        else 
-            SpeakerImage.gameObject.SetActive(false);
-        speakerElement.text = currentDialogue[pageNumber].Speaker;
-        
-        StopAllCoroutines();
-        
-        if (textBox.activeSelf)
-        {
-            //textElement.text = currentDialogue[pageNumber].text;
-            StartCoroutine(TextAnim(textElement));
-        }
-        else
-        {
-            //textElementEPG.text = currentDialogue[pageNumber].text;
-            StartCoroutine(TextAnim(textElementEPG));
-        }
+            EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
 
-
+            if (currentDialogue[pageNumber].SpeakerImage != null)
+            {
+                SpeakerImage.sprite = currentDialogue[pageNumber].SpeakerImage;
+                SpeakerImage.gameObject.SetActive(true);
+            }
+            else 
+                SpeakerImage.gameObject.SetActive(false);
+            speakerElement.text = currentDialogue[pageNumber].Speaker;
+            
+            if (textBox.activeSelf)
+            {
+                StopAllCoroutines();
+                StartCoroutine(TextAnim(textElement));
+            }
+            else
+            {
+                StopAllCoroutines();
+                StartCoroutine(TextAnim(textElementEPG));
+            }
+        }
     }
 
     void Update()
     {
         if (inDialogue)
         {
-            if (pageNumber == 0 && uiDataManager.options == 0)
+            if (pageNumber == 0 && uiDataManager.options == 0 && !textBoxEPG.activeSelf)
             {
-                if (textBoxEPG.activeSelf && Input.GetKeyDown(KeyCode.Mouse0))
+                
+                if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    if (textshown)
-                    {
-                       
-                        textshown = false;
-                        pageNumber += 1;
-                        displayPage();
-                    }
+                    if(!InventoryManager.inventoryState.hasGun)
+                        OptionsClick(1);
                     else
-                    {
-                        StopAllCoroutines();
-                        textElement.text = currentDialogue[pageNumber].text;
-                        textElementEPG.text = currentDialogue[pageNumber].text;
-                        textshown = true;
-                    }
-                }
-                else if (Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 1;
-                    pageNumber = 1;
-                    CheckDialogues(conversation, uiDataManager);
-                    soundManager.playSound("DialogSound");
+                        OptionsClick(4);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 2;
-                    pageNumber = 1;
-                    CheckDialogues(conversation, uiDataManager);
-                    soundManager.playSound("DialogSound");
+                    if(!InventoryManager.inventoryState.hasGun)
+                        OptionsClick(2);
+                    else
+                        OptionsClick(5);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 3;
-                    pageNumber = 1;
-                    CheckDialogues(conversation, uiDataManager);
-                    soundManager.playSound("DialogSound");
+                    if(!InventoryManager.inventoryState.hasGun)
+                        OptionsClick(3);
+                    else
+                        OptionsClick(6);
                 }
+                
             }
             else if (Input.GetMouseButtonDown(0))
             {
@@ -239,7 +221,11 @@ public class CanvasManager : MonoBehaviour
     }
 
     public IEnumerator TextAnim(TextMeshProUGUI TextElement)
-    {
+    {   
+        if (currentDialogue[pageNumber].font == null)
+            TextElement.font = currentConversation.fallbackfont;
+        else
+            TextElement.font = currentDialogue[pageNumber].font;
         TextElement.text = "";
         for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
         {
@@ -252,6 +238,22 @@ public class CanvasManager : MonoBehaviour
 
         textshown = true;
     }
-    
+
+    public void OptionsState(bool state)
+    {
+        text1.gameObject.SetActive(state);
+        text2.gameObject.SetActive(state);
+        text3.gameObject.SetActive(state);
+    }
+    public void OptionsClick(int ChosenOption)
+    {
+        if(currentDialogue.Length > pageNumber)
+            EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
+        uiDataManager.options = ChosenOption;
+        pageNumber = 1;
+        CheckDialogues(conversation, uiDataManager);
+        soundManager.playSound("DialogSound");
+        OptionsState(false);
+    }
     
 }
