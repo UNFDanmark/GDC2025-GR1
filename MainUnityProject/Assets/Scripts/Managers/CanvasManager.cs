@@ -71,6 +71,16 @@ public class CanvasManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
+        if (!EPGisTalking)
+        {
+            print(newState);
+            print(EPGisTalking);
+            
+            text1.gameObject.SetActive(newState);
+            text2.gameObject.SetActive(newState);
+            text3.gameObject.SetActive(newState);
+        }
         
         if (newState && EPGisTalking)
         {
@@ -81,15 +91,6 @@ public class CanvasManager : MonoBehaviour
         {
             textBoxEPG.SetActive(false);
             textBox.SetActive(true);
-            text1.gameObject.SetActive(true);
-            text2.gameObject.SetActive(true);
-            text3.gameObject.SetActive(true);
-        }
-        else
-        {
-            text1.gameObject.SetActive(false);
-            text2.gameObject.SetActive(false);
-            text3.gameObject.SetActive(false);
         }
     }
 
@@ -164,50 +165,22 @@ public class CanvasManager : MonoBehaviour
     {
         if (inDialogue)
         {
-            if (pageNumber == 0 && uiDataManager.options == 0)
+            if (pageNumber == 0 && uiDataManager.options == 0 && !textBoxEPG.activeSelf)
             {
-                if (textBoxEPG.activeSelf && Input.GetKeyDown(KeyCode.Mouse0))
+                
+                if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    if (textshown)
-                    {
-                       
-                        textshown = false;
-                        pageNumber += 1;
-                        displayPage();
-                    }
-                    else
-                    {
-                        StopAllCoroutines();
-                        textElement.text = currentDialogue[pageNumber].text;
-                        textElementEPG.text = currentDialogue[pageNumber].text;
-                        textshown = true;
-                    }
-                }
-                else if (Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 1;
-                    pageNumber = 1;
-                    CheckDialogues(conversation, uiDataManager);
-                    soundManager.playSound("DialogSound");
+                    OptionsClick(1);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 2;
-                    pageNumber = 1;
-                    CheckDialogues(conversation, uiDataManager);
-                    soundManager.playSound("DialogSound");
+                    OptionsClick(2);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
-                    uiDataManager.options = 3;
-                    pageNumber = 1;
-                    CheckDialogues(conversation, uiDataManager);
-                    soundManager.playSound("DialogSound");
+                    OptionsClick(3);
                 }
+                
             }
             else if (Input.GetMouseButtonDown(0))
             {
@@ -252,6 +225,22 @@ public class CanvasManager : MonoBehaviour
 
         textshown = true;
     }
-    
+
+    public void OptionsState(bool state)
+    {
+        print(state);
+        text1.gameObject.SetActive(state);
+        text2.gameObject.SetActive(state);
+        text3.gameObject.SetActive(state);
+    }
+    public void OptionsClick(int ChosenOption)
+    {
+        EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
+        uiDataManager.options = ChosenOption;
+        pageNumber = 1;
+        CheckDialogues(conversation, uiDataManager);
+        soundManager.playSound("DialogSound");
+        OptionsState(false);
+    }
     
 }
