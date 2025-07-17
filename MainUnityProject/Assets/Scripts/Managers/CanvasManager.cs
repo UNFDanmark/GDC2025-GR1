@@ -26,6 +26,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]UIDataManager uiDataManager;
     
     [SerializeField]Image SpeakerImage;
+
+    ConversationData currentConversation;
     
     
     public void ToggleInteractUI(bool isActive)
@@ -65,22 +67,20 @@ public class CanvasManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            text1.gameObject.SetActive(!EPGisTalking);
+            text2.gameObject.SetActive(!EPGisTalking);
+            text3.gameObject.SetActive(!EPGisTalking);
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            text1.gameObject.SetActive(false);
+            text2.gameObject.SetActive(false);
+            text3.gameObject.SetActive(false);
         }
-
-        if (!EPGisTalking)
-        {
-            print(newState);
-            print(EPGisTalking);
-            
-            text1.gameObject.SetActive(newState);
-            text2.gameObject.SetActive(newState);
-            text3.gameObject.SetActive(newState);
-        }
+        
+        
         
         if (newState && EPGisTalking)
         {
@@ -103,6 +103,7 @@ public class CanvasManager : MonoBehaviour
             if (conversations[i].inventoryState.isequals(InventoryManager.inventoryState) && UIDataManager.options == conversations[i].interactoption)
             {
                 currentDialogue = conversations[i].dialogue;
+                currentConversation = conversations[i];
                 startDialogue(currentDialogue, UIDataManager);
                 break;
             }
@@ -213,6 +214,10 @@ public class CanvasManager : MonoBehaviour
 
     public IEnumerator TextAnim(TextMeshProUGUI TextElement)
     {
+        if (currentDialogue[pageNumber].font == null)
+            textElement.font = currentConversation.fallbackfont;
+        else
+            textElement.font = currentDialogue[pageNumber].font;
         TextElement.text = "";
         for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
         {

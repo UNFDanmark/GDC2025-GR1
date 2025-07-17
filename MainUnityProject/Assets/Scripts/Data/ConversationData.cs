@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 [System.Serializable]
 public class ConversationData
 {
@@ -8,5 +9,7 @@ public class ConversationData
     public InventoryData inventoryState;
     
     public int interactoption;
+    
+    public TMP_FontAsset fallbackfont;
     
 }

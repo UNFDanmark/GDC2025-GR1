@@ -414,83 +414,100 @@ MonoBehaviour:
     - Speaker: Teller
       soundName: 
       text: Hello Welcome to First National
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: -737016491, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
     inventoryState:
       hasGun: 0
     interactoption: 0
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   - dialogue:
     - Speaker: Player
       soundName: 
       text: Hello! I'm here to rob the bank.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Excuse me?"
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 1955742542, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
     - Speaker: Teller
       soundName: 
       text: "You can\u2019t just.. Announce that."
+      font: {fileID: 0}
       PlayEvent: SideEye
       SpeakerImage: {fileID: -29602257, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
     - Speaker: Teller
       soundName: 
       text: "\u2026Are you... Smiling right now?"
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: -1778925, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
     - Speaker: Teller
       soundName: 
       text: "\u2026Are you... Smiling right now?"
+      font: {fileID: 0}
       PlayEvent: DirectOption
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   - dialogue:
     - Speaker: Player
       soundName: 
       text: I'm here to make a withdrawal... Of.. Everything.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "So\u2026 you\u2019re closing your account?"
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Please provide two forms of ID."
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Please provide two forms of ID."
+      font: {fileID: 0}
       PlayEvent: SubtleOption
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 2
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   - dialogue:
     - Speaker: Teller
       soundName: 
       text: Excuse me? Ew... Ugh..
+      font: {fileID: 0}
       PlayEvent: LickTheTableSound
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: This is a bank, not a buffet...
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: This is a bank, not a buffet...
+      font: {fileID: 0}
       PlayEvent: LickTheTableOption
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 3
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   canvasManager: {fileID: 1747436110}
   uiDataManager: {fileID: 1611776493}
 --- !u!1 &16962929
@@ -4292,7 +4309,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4358,7 +4375,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &592726837
@@ -5558,78 +5575,93 @@ MonoBehaviour:
       soundName: 
       text: Hello?? Can you hear me? Blink twice if yes- wait, no... Crap, nevermind.
         Can't see you.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: Are youuu... okay? Actually, uh- No. Don't answer that. It's too late
         to turn back now.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: ...Check your pockets, you must have a plan on you.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: What the hell is this? You call this a "plan"? This is NOT a plan, it's
         a suggestion at best - a bad one!
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: And what is that little thing in the left corner? It looks- and the stain??
         Did a toddler make this??
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   - dialogue:
     - Speaker: Driver
       soundName: 
       text: 'Ooookay.. Bold choice. I like the confidence... Hm. Some advice:'
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: Next time, maybe whisper it. Or just don't say it like you're asking
         for a happy meal.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   - dialogue:
     - Speaker: Driver
       soundName: 
       text: Two forms of ID? pause 2 seconds You barely brought one functioning brain
         cell.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: Okay, so your plan is 'die in paperwork.' Got it.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   - dialogue:
     - Speaker: Driver
       soundName: 
       text: Wow. You've really raised the bar for bad decision-making...
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: And lowered hygeine standards.
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   canvasManager: {fileID: 1747436110}
   EPGDialogProgression: 0
 --- !u!4 &743017461
@@ -9937,7 +9969,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e3a9d8a2941993849ba091185fe24953, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10003,7 +10035,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1297942885
@@ -11895,53 +11927,64 @@ MonoBehaviour:
     - Speaker: Teller
       soundName: 
       text: ABC
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
+    fallbackfont: {fileID: 0}
   - dialogue:
     - Speaker: Teller
       soundName: 
       text: a
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: tawfawdaw
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
+    fallbackfont: {fileID: 0}
   - dialogue:
     - Speaker: Teller
       soundName: 
       text: b
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: gwadwad
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 2
+    fallbackfont: {fileID: 0}
   - dialogue:
     - Speaker: Teller
       soundName: 
       text: c
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: wadwad
+      font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 3
+    fallbackfont: {fileID: 0}
   canvasManager: {fileID: 1747436110}
   uiDataManager: {fileID: 1611776493}
 --- !u!114 &1611776493
@@ -12891,7 +12934,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12957,7 +13000,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 13.647583, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1658281269
