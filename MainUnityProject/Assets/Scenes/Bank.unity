@@ -3108,6 +3108,18 @@ MonoBehaviour:
     EPGDialogProgression: 1
     ToggleObjectVisibility: 0
     Object: {fileID: 608206074}
+  - EventName: SideEye
+    PlaySound: 1
+    Sound: SideEyeSound
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 0
+    EPGDialogProgression: 3
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
   - EventName: SubtleOption
     PlaySound: 0
     Sound: 
@@ -3132,18 +3144,6 @@ MonoBehaviour:
     EPGDialogProgression: 3
     ToggleObjectVisibility: 0
     Object: {fileID: 608206074}
-  - EventName: SideEye
-    PlaySound: 1
-    Sound: SideEyeSound
-    ChangeInventory: 0
-    Inventory:
-      hasGun: 0
-    ChangeObjective: 0
-    NewObjective: 
-    EPGTalks: 0
-    EPGDialogProgression: 3
-    ToggleObjectVisibility: 0
-    Object: {fileID: 608206074}
   - EventName: LickTheTableSound
     PlaySound: 1
     Sound: LickSound
@@ -3154,6 +3154,30 @@ MonoBehaviour:
     NewObjective: 
     EPGTalks: 0
     EPGDialogProgression: 3
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
+  - EventName: StepAwayGun
+    PlaySound: 0
+    Sound: LickSound
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 0
+    NewObjective: 
+    EPGTalks: 1
+    EPGDialogProgression: 4
+    ToggleObjectVisibility: 0
+    Object: {fileID: 608206074}
+  - EventName: ObjectiveFindGun
+    PlaySound: 0
+    Sound: LickSound
+    ChangeInventory: 0
+    Inventory:
+      hasGun: 0
+    ChangeObjective: 1
+    NewObjective: find weapon
+    EPGTalks: 0
+    EPGDialogProgression: 4
     ToggleObjectVisibility: 0
     Object: {fileID: 608206074}
   soundManager: {fileID: 1174970702}
@@ -5623,6 +5647,13 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: Next time, maybe whisper it. Or just don't say it like you're asking
+        for a happy meal.
+      font: {fileID: 0}
+      PlayEvent: StepAwayGun
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
@@ -5641,6 +5672,12 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: Okay, so your plan is 'die in paperwork.' Got it.
+      font: {fileID: 0}
+      PlayEvent: StepAwayGun
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
@@ -5658,9 +5695,27 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+    - Speaker: Driver
+      soundName: 
+      text: And lowered hygeine standards.
+      font: {fileID: 0}
+      PlayEvent: StepAwayGun
+      SpeakerImage: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
+    fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+  - dialogue:
+    - Speaker: Driver
+      soundName: 
+      text: He doesn't seem intimidated. Maybe there's something around you that
+        you can use?
+      font: {fileID: 0}
+      PlayEvent: ObjectiveFindGun
+      SpeakerImage: {fileID: 0}
+    inventoryState:
+      hasGun: 0
+    interactoption: 4
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
   canvasManager: {fileID: 1747436110}
   EPGDialogProgression: 0
