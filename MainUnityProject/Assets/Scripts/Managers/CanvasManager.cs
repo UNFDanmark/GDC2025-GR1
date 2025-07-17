@@ -104,7 +104,7 @@ public class CanvasManager : MonoBehaviour
             {
                 currentDialogue = conversations[i].dialogue;
                 currentConversation = conversations[i];
-                startDialogue(currentDialogue, UIDataManager);
+                startDialogue(currentConversation, UIDataManager);
                 break;
             }
             
@@ -112,16 +112,15 @@ public class CanvasManager : MonoBehaviour
     }
     
     
-    public void startDialogue(DialogueData[] dialogue, UIDataManager UiDataManager)
+    public void startDialogue(ConversationData conversation, UIDataManager UiDataManager)
     {
-        
-        print("");
+        currentConversation = conversation;
         if(UiDataManager)
             uiDataManager = UiDataManager;
         else if (!uiDataManager)
             uiDataManager = new UIDataManager();
         pageNumber = 0;
-        currentDialogue = dialogue;
+        currentDialogue = conversation.dialogue;
         displayPage();
 
         if (textBox.activeSelf)
@@ -222,8 +221,9 @@ public class CanvasManager : MonoBehaviour
 
     public IEnumerator TextAnim(TextMeshProUGUI TextElement)
     {   
+       
         if (currentDialogue[pageNumber].font == null)
-            TextElement.font = currentConversation.fallbackfont;
+            TextElement.font = currentConversation?.fallbackfont;
         else
             TextElement.font = currentDialogue[pageNumber].font;
         TextElement.text = "";
