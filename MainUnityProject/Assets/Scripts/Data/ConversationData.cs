@@ -3,6 +3,7 @@ using TMPro;
 [System.Serializable]
 public class ConversationData
 {
+
     
     public DialogueData[] dialogue;
 
@@ -11,5 +12,6 @@ public class ConversationData
     public int interactoption;
     
     public TMP_FontAsset fallbackfont;
+    public GameObject fallbackdialogBox;
     
 }

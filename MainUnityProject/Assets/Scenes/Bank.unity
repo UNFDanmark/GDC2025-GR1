@@ -417,10 +417,12 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: -737016491, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 0}
   - dialogue:
     - Speaker: Player
       soundName: 
@@ -428,34 +430,40 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Excuse me?"
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 1955742542, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "You can\u2019t just.. Announce that."
       font: {fileID: 0}
       PlayEvent: SideEye
       SpeakerImage: {fileID: -29602257, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Are you... Smiling right now?"
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: -1778925, guid: bc220134ad90134479ebb54ea13d6bd0, type: 3}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Are you... Smiling right now?"
       font: {fileID: 0}
       PlayEvent: DirectOption
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 0}
   - dialogue:
     - Speaker: Player
       soundName: 
@@ -463,28 +471,33 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "So\u2026 you\u2019re closing your account?"
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Please provide two forms of ID."
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: "\u2026Please provide two forms of ID."
       font: {fileID: 0}
       PlayEvent: SubtleOption
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 2
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 0}
   - dialogue:
     - Speaker: Teller
       soundName: 
@@ -492,22 +505,26 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: LickTheTableSound
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: This is a bank, not a buffet...
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: This is a bank, not a buffet...
       font: {fileID: 0}
       PlayEvent: LickTheTableOption
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 3
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 0}
   canvasManager: {fileID: 1747436110}
   uiDataManager: {fileID: 1611776493}
 --- !u!1 &16962929
@@ -5614,6 +5631,7 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: Are youuu... okay? Actually, uh- No. Don't answer that. It's too late
@@ -5621,12 +5639,14 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: ...Check your pockets, you must have a plan on you.
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: What the hell is this? You call this a "plan"? This is NOT a plan, it's
@@ -5634,17 +5654,20 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: EPG
       soundName: 
       text: And what is that little thing in the left corner? It looks- and the stain??
         Did a toddler make this??
       font: {fileID: 0}
-      PlayEvent: 
+      PlayEvent: ObjectiveShows
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 2066505667}
   - dialogue:
     - Speaker: Driver
       soundName: 
@@ -5652,6 +5675,7 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: Next time, maybe whisper it. Or just don't say it like you're asking
@@ -5659,6 +5683,7 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: Next time, maybe whisper it. Or just don't say it like you're asking
@@ -5666,10 +5691,12 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: StepAwayGun
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 2066505667}
   - dialogue:
     - Speaker: Driver
       soundName: 
@@ -5677,22 +5704,26 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: Okay, so your plan is 'die in paperwork.' Got it.
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: Okay, so your plan is 'die in paperwork.' Got it.
       font: {fileID: 0}
       PlayEvent: StepAwayGun
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 2066505667}
   - dialogue:
     - Speaker: Driver
       soundName: 
@@ -5700,22 +5731,26 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: And lowered hygeine standards.
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: And lowered hygeine standards.
       font: {fileID: 0}
       PlayEvent: StepAwayGun
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 2066505667}
   - dialogue:
     - Speaker: Driver
       soundName: 
@@ -5724,10 +5759,12 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: ObjectiveFindGun
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 2066505667}
     inventoryState:
       hasGun: 0
     interactoption: 4
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 0}
   - dialogue:
     - Speaker: Driver
       soundName: 
@@ -5735,6 +5772,7 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: You sure it's real? Like heavy? Cold? Clicky? ...You licked it?? Why
@@ -5742,6 +5780,7 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: LickTheTableOption
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Driver
       soundName: 
       text: Okay, okay, a gun is a gun. Just aim it at the guy and don't do anything
@@ -5749,10 +5788,12 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 5
     fallbackfont: {fileID: 11400000, guid: 0acfe30d316df2f488de8d7cbab14861, type: 2}
+    fallbackdialogBox: {fileID: 2066505667}
   canvasManager: {fileID: 1747436110}
   EPGDialogProgression: 0
 --- !u!4 &743017461
@@ -12021,10 +12062,12 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 0
     fallbackfont: {fileID: 0}
+    fallbackdialogBox: {fileID: 0}
   - dialogue:
     - Speaker: Teller
       soundName: 
@@ -12032,16 +12075,19 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: tawfawdaw
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 1
     fallbackfont: {fileID: 0}
+    fallbackdialogBox: {fileID: 0}
   - dialogue:
     - Speaker: Teller
       soundName: 
@@ -12049,16 +12095,19 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: gwadwad
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 2
     fallbackfont: {fileID: 0}
+    fallbackdialogBox: {fileID: 0}
   - dialogue:
     - Speaker: Teller
       soundName: 
@@ -12066,16 +12115,19 @@ MonoBehaviour:
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     - Speaker: Teller
       soundName: 
       text: wadwad
       font: {fileID: 0}
       PlayEvent: 
       SpeakerImage: {fileID: 0}
+      dialogbox: {fileID: 0}
     inventoryState:
       hasGun: 0
     interactoption: 3
     fallbackfont: {fileID: 0}
+    fallbackdialogBox: {fileID: 0}
   canvasManager: {fileID: 1747436110}
   uiDataManager: {fileID: 1611776493}
 --- !u!114 &1611776493
@@ -12568,15 +12620,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2615e8d42ad7fa4196637d11683629f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.770004
+      value: -75.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2615e8d42ad7fa4196637d11683629f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1340024
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2615e8d42ad7fa4196637d11683629f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.015959
+      value: -3.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2615e8d42ad7fa4196637d11683629f, type: 3}
       propertyPath: m_LocalRotation.w

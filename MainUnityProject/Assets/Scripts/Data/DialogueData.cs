@@ -13,4 +13,6 @@ public class DialogueData
     public string PlayEvent = "";
 
     public Sprite SpeakerImage;
+
+    public GameObject dialogbox;
 }

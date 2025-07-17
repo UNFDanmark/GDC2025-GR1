@@ -42,7 +42,7 @@ public class CanvasManager : MonoBehaviour
             Btn1.SetActive(isActive);
             if (InventoryManager.inventoryState.hasGun)
             {
-                Btn2.SetActive(isActive);
+                //Btn2.SetActive(isActive);
             }
         }
         
@@ -115,7 +115,7 @@ public class CanvasManager : MonoBehaviour
     public void startDialogue(DialogueData[] dialogue, UIDataManager UiDataManager)
     {
         
-        
+        print("");
         if(UiDataManager)
             uiDataManager = UiDataManager;
         else if (!uiDataManager)
@@ -126,16 +126,15 @@ public class CanvasManager : MonoBehaviour
 
         if (textBox.activeSelf)
         {
-            text1.text = UiDataManager.UIData[UiDataManager.options].Text1;
-            text2.text = UiDataManager.UIData[UiDataManager.options].Text2;
-            text3.text = UiDataManager.UIData[UiDataManager.options].Text3;
+            text1.text = UiDataManager.UIData[0].Text1;
+            text2.text = UiDataManager.UIData[0].Text2;
+            text3.text = UiDataManager.UIData[0].Text3;
         }
         
     }
 
     void displayPage()
     {
-        StopAllCoroutines();
         if (currentDialogue.Length > pageNumber)
         {
             EventManager.PlayEvent(currentDialogue[pageNumber].PlayEvent); 
@@ -151,10 +150,12 @@ public class CanvasManager : MonoBehaviour
             
             if (textBox.activeSelf)
             {
+                StopAllCoroutines();
                 StartCoroutine(TextAnim(textElement));
             }
             else
             {
+                StopAllCoroutines();
                 StartCoroutine(TextAnim(textElementEPG));
             }
         }
@@ -169,15 +170,24 @@ public class CanvasManager : MonoBehaviour
                 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    OptionsClick(1);
+                    if(!InventoryManager.inventoryState.hasGun)
+                        OptionsClick(1);
+                    else
+                        OptionsClick(4);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    OptionsClick(2);
+                    if(!InventoryManager.inventoryState.hasGun)
+                        OptionsClick(2);
+                    else
+                        OptionsClick(5);
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    OptionsClick(3);
+                    if(!InventoryManager.inventoryState.hasGun)
+                        OptionsClick(3);
+                    else
+                        OptionsClick(6);
                 }
                 
             }
@@ -204,20 +214,18 @@ public class CanvasManager : MonoBehaviour
                 else
                 {
                     setDialogueState(false, false);
-                    if(uiDataManager != null)
-                        uiDataManager.options = 0;
+                    uiDataManager.options = 0;
                 }
             }
         }
     }
 
     public IEnumerator TextAnim(TextMeshProUGUI TextElement)
-    {
-        print(currentConversation.fallbackfont);
+    {   
         if (currentDialogue[pageNumber].font == null)
-            textElement.font = currentConversation.fallbackfont;
+            TextElement.font = currentConversation.fallbackfont;
         else
-            textElement.font = currentDialogue[pageNumber].font;
+            TextElement.font = currentDialogue[pageNumber].font;
         TextElement.text = "";
         for (int i = 0; i < currentDialogue[pageNumber].text.Length; i += 1)
         {
@@ -233,7 +241,6 @@ public class CanvasManager : MonoBehaviour
 
     public void OptionsState(bool state)
     {
-        print(state);
         text1.gameObject.SetActive(state);
         text2.gameObject.SetActive(state);
         text3.gameObject.SetActive(state);
